@@ -1,20 +1,23 @@
 ---
-title: "Manuscript Title"
+title: "Biologically motivated constraints for machine learning models in biomedicine"
 keywords:
-  - markdown
-  - publishing
-  - manubot
+  - machine-learning
+  - deep-learning
+  - gene-networks
+  - pathway-databases
+  - literature-review
 lang: en-US
 author_info:
   -
-    github: johndoe
-    name: John Doe
-    initials: JD
-    orcid: XXXX-XXXX-XXXX-XXXX
-    twitter: johndoe
-    email: john.doe@something.com
+    github: jjc2718
+    name: Jake Crawford
+    initials: JJC
+    orcid: 0000-0001-6207-0782
+    twitter: jjc2718
+    email: jcra@pennmedicine.upenn.edu
     affiliations:
-      - Department of Something, University of Whatever
+      - Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
+      - Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
     funders: Grant XXXXXXXX
   -
     github: janeroe
