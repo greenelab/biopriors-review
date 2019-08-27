@@ -1,19 +1,21 @@
 {
-  "date": "August 21, 2019",
+  "date": "August 27, 2019",
   "authors": [
     {
-      "github": "johndoe",
-      "name": "John Doe",
-      "initials": "JD",
-      "orcid": "XXXX-XXXX-XXXX-XXXX",
-      "twitter": "johndoe",
-      "email": "john.doe@something.com",
+      "github": "jjc2718",
+      "name": "Jake Crawford",
+      "initials": "JJC",
+      "orcid": "0000-0001-6207-0782",
+      "twitter": "jjc2718",
+      "email": "jcra@pennmedicine.upenn.edu",
       "affiliations": [
-        "Department of Something, University of Whatever"
+        "Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
+        "Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA"
       ],
       "funders": "Grant XXXXXXXX",
       "affiliation_numbers": [
-        1
+        1,
+        2
       ]
     },
     {
@@ -27,31 +29,39 @@
         "Department of Whatever, University of Something"
       ],
       "affiliation_numbers": [
-        1,
-        2
+        3,
+        4
       ]
     }
   ],
   "affiliations": [
     {
-      "affiliation": "Department of Something, University of Whatever",
+      "affiliation": "Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
       "affiliation_number": 1
     },
     {
-      "affiliation": "Department of Whatever, University of Something",
+      "affiliation": "Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
       "affiliation_number": 2
+    },
+    {
+      "affiliation": "Department of Something, University of Whatever",
+      "affiliation_number": 3
+    },
+    {
+      "affiliation": "Department of Whatever, University of Something",
+      "affiliation_number": 4
     }
   ],
   "ci_source": {
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "3596981cca11852549a2266fae05e29f4320963c"
+    "commit": "982a9979d5d375ece5043a6b9aaa9b577168720b"
   },
   "manuscript_stats": {
     "reference_counts": {
       "total": 0
     },
-    "word_count": 232
+    "word_count": 1558
   }
 }
