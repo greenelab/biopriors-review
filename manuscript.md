@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-08-27'
+date-meta: '2019-08-29'
 keywords:
 - machine-learning
 - deep-learning
@@ -10,7 +10,7 @@ keywords:
 - pathway-databases
 - literature-review
 lang: en-US
-title: Biologically motivated constraints for machine learning models in biomedicine
+title: Incorporating biological structure into machine learning models in biomedicine
 ...
 
 
@@ -20,10 +20,10 @@ title: Biologically motivated constraints for machine learning models in biomedi
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/982a9979d5d375ece5043a6b9aaa9b577168720b/))
+([permalink](https://greenelab.github.io/biopriors-review/v/e7b30472d37bc3bb98b7215128220ec09628202d/))
 was automatically generated
-from [greenelab/biopriors-review@982a997](https://github.com/greenelab/biopriors-review/tree/982a9979d5d375ece5043a6b9aaa9b577168720b)
-on August 27, 2019.
+from [greenelab/biopriors-review@e7b3047](https://github.com/greenelab/biopriors-review/tree/e7b30472d37bc3bb98b7215128220ec09628202d)
+on August 29, 2019.
 </em></small>
 
 ## Authors
@@ -60,21 +60,22 @@ on August 27, 2019.
 
 ## Introduction
 
-1. Why is this necessary? Where do traditional models fail?
-   * Biological data is often "wide" (n << p), so it can be difficult for models to learn feature covariance structure directly from the data.
-   * For "tall" data (n >> p) as is often used in non-biological ML, sufficiently flexible models (NNs, etc) can effectively learn covariance structure directly from the data, and incorporating structured priors is often unnecessary.
-   * Frequently, there is no natural way to encode biological knowledge as real-valued features: knowledge can take many forms (pathways, networks, hierarchies, ontologies/knowledge graphs).
-     Most ML models operate on real-valued features, so modelers must be creative when deciding how to constrain the model based on the structure of the relevant biological knowledge.
+When applying machine learning techniques to biomedical datasets, it can be challenging to distinguish signal from noise, particularly in the presence of limited amounts of data.
+Biological knowledge can take many forms, including genomic sequences, pathway databases, gene interaction networks, and knowledge hierarchies such as the Gene Ontology [@eH3LaU5K].
+Incorporating these resources in machine learning models can be helpful in identifying patterns in noisy data [@Zm1iJl59] and in interpreting model predictions [@1HLd4LXUB].
+However, there is often no canonical way to encode these structures as real-valued predictors.
+This means modelers must be creative when deciding how to encode biological knowledge that they expect will be relevant to the task in models.
 
-2. What is a "biologically motivated constraint"? How is this different from
-  regularization?
-    a. Regularization refers specifically to adding a smoothness or penalty term to the model's loss function to reflect a biological desideratum.
-        * For example, a model using the expression of genes as predictors could have a penalty requiring genes in the same biological pathway to have a similar role in the predictive model.
-        * Or, a model using eQTL expression levels to predict a phenotype could have a penalty requiring genes that are nearby on the chromosome to have a similar role in the predictive model. (could give explicit examples of loss functions if it makes things clearer)
-    b. We use "constraint" as a more general term that can take many forms, depending on the choice of machine learning model.
-        * Regularization is a type of biological constraint, but there exist constraints that do not fit the definition of regularization given above.
-        * Example: DCell (Ma et al 2018). Not really an explicit "regularizer" mathematically speaking, but the structure of the NN is biologically inspired and constrained using biological knowledge.
-    c. Note that the term "constraint" has a specific meaning in mathematical optimization (one might minimize some function f(x) subject to a constraint g(x) > c). Herein, we use the term more generally, and none of the constraints we discuss take this form. (should we come up with a different term to use for this?)
+Biomedical datasets often contain more input predictors than data samples [@1B2Ue9gnv; @JPGgWnoo].
+For example, a genetic study may genotype millions of single nucleotide polymorphisms (SNPs) in hundreds of patients, or a gene expression study may profile the expression of thousands of genes in only a handful of samples.
+Thus, it can be useful to include prior information describing the relationships between the predictors to inform the representation learned by the model.
+This stands in contrast to non-biological applications of machine learning, where one might fit a model on millions of images [@lt4BNUoG] or tens of thousands of documents [@hIUpKMFp], making inclusion of prior information unnecessary.
+
+In this review, we survey approaches to learning models from biomedical data that incorporate external information about the structure of desirable solutions.
+One class of commonly used approaches involves using raw sequence data to learn a representation that considers the context of each base pair.
+For models that operate on gene input, such as gene expression data or genetic variants, it can be useful to incorporate networks or pathways describing relationships between genes.
+We also consider other examples in this review, such as neural network architectures that are constrained based on biological knowledge.
+
 
 
 ## Sequence-Constrained Models
