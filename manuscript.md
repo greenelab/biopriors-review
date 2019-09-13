@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-08-29'
+date-meta: '2019-09-13'
 keywords:
 - machine-learning
 - deep-learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/e7b30472d37bc3bb98b7215128220ec09628202d/))
+([permalink](https://greenelab.github.io/biopriors-review/v/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870/))
 was automatically generated
-from [greenelab/biopriors-review@e7b3047](https://github.com/greenelab/biopriors-review/tree/e7b30472d37bc3bb98b7215128220ec09628202d)
-on August 29, 2019.
+from [greenelab/biopriors-review@a5e7ab2](https://github.com/greenelab/biopriors-review/tree/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870)
+on September 13, 2019.
 </em></small>
 
 ## Authors
@@ -78,41 +78,39 @@ We also consider other examples in this review, such as neural network architect
 
 
 
-## Sequence-Constrained Models
+## Sequence models
+
+Early neural network models primarily used hand-engineered sequence features as input to a fully connected neural network [@12aqvAgz6; @17sgPdcMT].
+As convolutional neural network (CNN) approaches matured for image processing and computer vision, researchers were able to use similar ideas to leverage biological sequence proximity in modeling.
+CNNs are a neural network variant in which input data are grouped by spatial context to extract features for prediction.
+The definition of "spatial context" is specific to the input.
+For example, for images pixels that are nearby in 2D space might be grouped, or for genomic sequences base pairs that are nearby in the linear genome might be grouped.
+
+These approaches work by first encoding input into a numeric matrix (for DNA "one-hot" encoding is often used: A=[1,0,0,0], C=[0,1,0,0], G=[0,0,1,0], T=[0,0,0,1]).
+They then apply spatial filters to the encoded input, which are adjusted based on the data during model training.
+In this way, CNNs are able to consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
+A detailed description of how CNNs are applied to sequence data can be found in [@irSe12Sm].
 
 ### Applications in regulatory biology
 
-1. Early examples
-    * 10.1126/science.1254806 (can cite as an early example of using
-      hand-engineered features as input to a 2-layer MLP, preceded most
-      CNN examples on sequence data -> splicing exon inclusion prediction)
-    * 10.1038/nbt.3300 (CNN for prediction of DNA/RNA binding protein
-      sequence specificity)
-    * 10.1038/nmeth.3547 (CNN for multi-task variant effect prediction
-      from noncoding genome, one of the earlier examples of CNN on genomic
-      sequence data)
-    * 10.1101/gr.200535.11 (CNN for prediction of chromatin accessibility
-      from DNA sequence, evaluated to predict effects of SNPs)
-2. More recent examples
-    * 10.1101/737981 (CNN for prediction of TF binding probability and
-      binding strength from sequence, used to identify and interpret
-      cis-regulatory code i.e. order and spacing of TF binding motifs,
-      no need for strong modeling assumptions + allow lots of context
-      ~1000 base windows)
-    * 10.1016/j.cell.2019.04.046 (prediction of alternative polyadenylation
-      from sequence, used to predict probability of poly-A cleavage and
-      engineer new PASs)
-    * DNA methylation models typically operate on microarray beta values
-      (proportion of DNA methylated at each CpG locus), so these wouldn't
-      be considered sequence-constrained. An exception: DeepSignal
-      (10.1093/bioinformatics/btz276) - CNN that works on electrical signals
-      around CpG sites from Nanopore sequencing reads, to predict 5mC or 6mA
-      methylation status
-    * 10.1101/329334 and 10.1093/bioinformatics/bty612: prediction of gene
-      expression (or differential gene expression) from histone modification
-      signals. Signals are discretized using bins (no raw sequence input)
-      but bidirectional LSTM considers context in both directions and allows
-      for learning complex histone mark dependencies.
+Many of the first applications of deep learning to biological sequence data were in regulatory biology.
+Example early applications of CNNs on sequence data include prediction of binding protein sequence specificity from DNA or RNA sequence [@jJHZHWrl], prediction of variant effects from noncoding DNA sequence [@2UI1BZuD], and prediction of chromatin accessibility from DNA sequence [@2CbHXoFn].
+
+Recent sequence models take advantage of hardware advances and methodological innovation to incorporate more sequence context and rely on fewer modeling assumptions.
+BPNet, a CNN used to predict transcription factor binding profiles from raw DNA sequences, was able to accurately map known locations of binding motifs in mouse embryonic stem cells [@miFkgNt5].
+The BPNet model considers 1000 base pairs of context around each position when predicting binding probabilities, using a technique called dilated convolutions [@18MdGd1xW] to make a large input field feasible.
+This context is particularly important because motif spacing and periodicity can influence protein function.
+cDeepbind [@NyVCOHer] combines RNA sequences with information about secondary structure to predict RNA binding protein affinities.
+Its convolutional model acts on a feature vector combining sequence and structural information, simultaneously using context for both to inform predictions.
+APARENT [@17KNm3K0B] is a CNN used to predict alternative polyadenylation (APA) from a training set of over 3 million synthetic APA reporter sequences.
+These diverse applications underscore the power of modern deep learning models to synthesize large sequence datasets.
+
+Models that consider sequence context have also been applied to impute and make predictions from epigenetic data.
+DeepSignal [@phJJvCFv] is a CNN that uses contextual electrical signals from Oxford Nanopore single-molecule sequencing data to predict 5mC or 6mA DNA methylation status.
+MRCNN [@NzYX9e9i] uses sequences of length 400, centered at CpG sites, to predict 5mC methylation status.
+Deep learning models have also been used to predict gene expression from histone modifications [@126y5dSh0; @rxMdCSQm].
+Here, a neural network model consisting of long short-term memory (LSTM) units was used to encode the long-distance interactions of histone marks in both the 3' and 5' genomic directions.
+In each of these cases, proximity in the linear genome proved useful for modeling the complex interactions between DNA sequence and epigenome.
 
 ### Applications in variant calling and mutation detection
 
@@ -135,6 +133,8 @@ We also consider other examples in this review, such as neural network architect
 * 10.1186/s13059-018-1459-4 (similar to ^ but for Cas9, also uses ChIP-seq
   data)
 * 10.1101/636472 (similar to ^)
+* 10.1093/bioinformatics/bty554 (similar to above algorithms but for
+  off-target predictions, need to read in more detail)
 * 10.1101/505602 (uses STRING -> gene network-based features, in addition
   to sequence features, for on-target efficacy prediction)
 
