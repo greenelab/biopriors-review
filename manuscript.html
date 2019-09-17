@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jake Crawford" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-09-13" />
+  <meta name="dcterms.date" content="2019-09-17" />
   <meta name="keywords" content="machine-learning, deep-learning, gene-networks, pathway-databases, literature-review" />
   <title>Incorporating biological structure into machine learning models in biomedicine</title>
   <style>
@@ -23,7 +23,7 @@
 <header id="title-block-header">
 <h1 class="title">Incorporating biological structure into machine learning models in biomedicine</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870">greenelab/biopriors-review@a5e7ab2</a> on September 13, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/5f332d247a796bb854b46a274647b8dbee2a4708/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/5f332d247a796bb854b46a274647b8dbee2a4708">greenelab/biopriors-review@5f332d2</a> on September 17, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>Jake Crawford</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/0000-0001-6207-0782">0000-0001-6207-0782</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/jjc2718">jjc2718</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/jjc2718">jjc2718</a><br> <small> Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA · Funded by Grant XXXXXXXX </small></p></li>
@@ -59,27 +59,16 @@
 <li>10.1093/bioinformatics/bty554 (similar to above algorithms but for off-target predictions, need to read in more detail)</li>
 <li>10.1101/505602 (uses STRING -&gt; gene network-based features, in addition to sequence features, for on-target efficacy prediction)</li>
 </ul>
-<h2 id="network--and-pathway-constrained-models">Network- and Pathway-Constrained Models</h2>
-<h3 id="applications-in-bulk-transcriptomics">Applications in bulk transcriptomics</h3>
-<ul>
-<li>10.1016/j.cels.2019.04.003 (pathways -&gt; transfer learning for rare diseases)</li>
-<li>10.1038/s41540-019-0086-3 (PPI + pathways -&gt; phenotype prediction/cancer subtyping)</li>
-<li>https://arxiv.org/pdf/1906.10670 (HumanBase -&gt; AML drug response prediction)</li>
-<li>10.1093/bioinformatics/bty429 (HINT PPI)</li>
-<li>10.1038/s41598-017-03141-w (PPI -&gt; mutated cancer gene detection)</li>
-<li>10.1371/journal.pcbi.1006657 (PPI + network optimization -&gt; cancer outcome prediction)</li>
-<li>10.1186/s12859-018-2500-z (pathways -&gt; NN structure, for predicting patient outcomes in GBM)</li>
-<li>10.1186/s12859-017-1984-2 (gene regulatory network -&gt; NN structure, for patient outcomes in kidney transplantation and ulcerative colitis)</li>
-<li>10.1038/s41598-018-19635-0 (gene regulatory network -&gt; group lasso, same datasets as ^)</li>
-<li>10.1093/bioinformatics/bty945 (gene regulatory network -&gt; NN structure, for predicting gene expression given gene knockouts)</li>
-</ul>
-<h3 id="applications-in-single-cell-transcriptomics">Applications in single cell transcriptomics</h3>
-<ul>
-<li>10.1038/s41592-019-0456-1 (pathways -&gt; cell type deconvolution/pathway-level eQTLs)</li>
-<li>10.1093/nar/gkx681 (PPI; protein-DNA interactions)</li>
-<li>10.1101/544346 (PPI)</li>
-</ul>
+<h2 id="network--and-pathway-based-models">Network- and pathway-based models</h2>
+<p>Rather than operating on raw DNA sequence, many machine learning models in biomedicine operate on inputs without an intrinsic order. For instance, models may make use of gene expression data matrices (e.g. from RNA sequencing or microarray experiments), where each row represents a sample and each column a gene. When modeling data that is indexed by gene, one might incorporate knowledge that describes the relationships or correlations between genes, in an effort to take these relationships into account when making predictions or generating a low-dimensional representation of the data. This is comparable to the manner in which sequence context encourages models to consider nearby base pairs similarly.</p>
+<h3 id="applications-in-transcriptomics">Applications in transcriptomics</h3>
+<p>Models that take gene expression data as input can benefit from incorporating gene-level relationships. One form that this knowledge commonly takes is a database of gene sets, which may represent biological pathways or gene signatures related to a biological state of interest. PLIER <span class="citation" data-cites="Ki2ij7zE">[<a href="#ref-Ki2ij7zE" role="doc-biblioref">22</a>]</span> uses gene set information from MSigDB <span class="citation" data-cites="15p5LWIVP">[<a href="#ref-15p5LWIVP" role="doc-biblioref">23</a>]</span> and cell type markers to extract a representation of whole blood gene expression data that corresponds to biological processes and reduces technical noise. The resulting gene set-aligned representation was used to perform accurate cell type mixture decomposition. MultiPLIER <span class="citation" data-cites="14rnBunuZ">[<a href="#ref-14rnBunuZ" role="doc-biblioref">24</a>]</span> applied the PLIER framework to the recount2 gene expression compendium <span class="citation" data-cites="6SPTvFXq">[<a href="#ref-6SPTvFXq" role="doc-biblioref">25</a>]</span> to develop a model that shares information across multiple tissues and diseases, including rare diseases with limited sample sizes. PASNet <span class="citation" data-cites="1Bb8CyeTY">[<a href="#ref-1Bb8CyeTY" role="doc-biblioref">26</a>]</span> uses data from MSigDB to inform the structure of a neural network for predicting patient outcomes in glioblastoma multiforme (GBM) from gene expression data. This approach has the added benefit of straightforward interpretation, as pathway nodes in the network having high weights can be inferred to correspond to important pathways in GBM outcome prediction.</p>
+<p>Alternatively, gene-level relationships can take the form of a network. Nodes in these networks typically represent genes, and real-valued edges in these networks may represent interactions or correlations between genes, often in a tissue or cell type context of interest. netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">27</a>]</span> incorporates coexpression networks <span class="citation" data-cites="3VYPTgXw">[<a href="#ref-3VYPTgXw" role="doc-biblioref">28</a>]</span> as a smoothing term to perform dimension reduction and impute dropouts in single-cell gene expression data. The authors show that using a coexpression network to extract a low-dimensional representation increases performance for cell type identification and identification of cell cycle marker genes, both as compared to using raw gene expression data and as compared to other single-cell dimension reduction methods. Combining gene expression data with a network-derived smoothing term has also been shown to improve performance at predicting patient drug response in acute myeloid leukemia <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">29</a>]</span> and at detecting mutated cancer genes <span class="citation" data-cites="1BbuXJuIl">[<a href="#ref-1BbuXJuIl" role="doc-biblioref">30</a>]</span>. PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">31</a>]</span> combines network and pathway data to predict disease-free survival from breast cancer cohorts. This method takes as input both RNA-seq gene expression data and copy number alteration data, but can be applied to gene expression data alone as well.</p>
+<p>Gene regulatory networks can also augment models for gene expression data. These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules. creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">32</a>]</span> integrates a gene regulatory network, derived from STRING <span class="citation" data-cites="q9Fhy8eq">[<a href="#ref-q9Fhy8eq" role="doc-biblioref">33</a>]</span>, with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection based on gene expression data. The gene regulatory information allows the model to identify the biological regulators that are associated with the response, potentially giving mechanistic insight into differential clinical trial response. GRRANN <span class="citation" data-cites="19wuAzYvo">[<a href="#ref-19wuAzYvo" role="doc-biblioref">34</a>]</span> uses a gene regulatory network to inform the structure of a neural network, applying it to the same clinical trial data as creNET. Several other methods <span class="citation" data-cites="owp8L957 e4tSAJkK">[<a href="#ref-owp8L957" role="doc-biblioref">35</a>,<a href="#ref-e4tSAJkK" role="doc-biblioref">36</a>]</span> have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit by the network and facilitating interpretation of network predictions.</p>
 <h3 id="applications-in-genetics">Applications in genetics</h3>
+<ul>
+<li>10.1093/bioinformatics/bty429 (HINT PPI)</li>
+</ul>
 <ol type="1">
 <li>Genotype-phenotype associations (GWAS/eQTL)
 <ul>
@@ -257,6 +246,95 @@ DOI: <a href="https://doi.org/10.1101/329334">10.1101/329334</a></p>
 Arshdeep Sekhon, Ritambhara Singh, Yanjun Qi<br />
 <em>Bioinformatics</em> (2018-09-01) <a href="https://doi.org/gd9mk4">https://doi.org/gd9mk4</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/bty612">10.1093/bioinformatics/bty612</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30423076">30423076</a></p>
+</div>
+<div id="ref-Ki2ij7zE">
+<p>22. <strong>Pathway-level information extractor (PLIER) for gene expression data</strong><br />
+Weiguang Mao, Elena Zaslavsky, Boris M. Hartmann, Stuart C. Sealfon, Maria Chikina<br />
+<em>Nature Methods</em> (2019-06-27) <a href="https://doi.org/gf75g6">https://doi.org/gf75g6</a><br />
+DOI: <a href="https://doi.org/10.1038/s41592-019-0456-1">10.1038/s41592-019-0456-1</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31249421">31249421</a></p>
+</div>
+<div id="ref-15p5LWIVP">
+<p>23. <strong>Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles</strong><br />
+A. Subramanian, P. Tamayo, V. K. Mootha, S. Mukherjee, B. L. Ebert, M. A. Gillette, A. Paulovich, S. L. Pomeroy, T. R. Golub, E. S. Lander, J. P. Mesirov<br />
+<em>Proceedings of the National Academy of Sciences</em> (2005-09-30) <a href="https://doi.org/d4qbh8">https://doi.org/d4qbh8</a><br />
+DOI: <a href="https://doi.org/10.1073/pnas.0506580102">10.1073/pnas.0506580102</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/16199517">16199517</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1239896">PMC1239896</a></p>
+</div>
+<div id="ref-14rnBunuZ">
+<p>24. <strong>MultiPLIER: A Transfer Learning Framework for Transcriptomics Reveals Systemic Features of Rare Disease</strong><br />
+Jaclyn N. Taroni, Peter C. Grayson, Qiwen Hu, Sean Eddy, Matthias Kretzler, Peter A. Merkel, Casey S. Greene<br />
+<em>Cell Systems</em> (2019-05) <a href="https://doi.org/gf75g5">https://doi.org/gf75g5</a><br />
+DOI: <a href="https://doi.org/10.1016/j.cels.2019.04.003">10.1016/j.cels.2019.04.003</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31121115">31121115</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6538307">PMC6538307</a></p>
+</div>
+<div id="ref-6SPTvFXq">
+<p>25. <strong>Reproducible RNA-seq analysis using recount2</strong><br />
+Leonardo Collado-Torres, Abhinav Nellore, Kai Kammers, Shannon E Ellis, Margaret A Taub, Kasper D Hansen, Andrew E Jaffe, Ben Langmead, Jeffrey T Leek<br />
+<em>Nature Biotechnology</em> (2017-04) <a href="https://doi.org/gf75hp">https://doi.org/gf75hp</a><br />
+DOI: <a href="https://doi.org/10.1038/nbt.3838">10.1038/nbt.3838</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28398307">28398307</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6742427">PMC6742427</a></p>
+</div>
+<div id="ref-1Bb8CyeTY">
+<p>26. <strong>PASNet: pathway-associated sparse deep neural network for prognosis prediction from high-throughput data</strong><br />
+Jie Hao, Youngsoon Kim, Tae-Kyung Kim, Mingon Kang<br />
+<em>BMC Bioinformatics</em> (2018-12) <a href="https://doi.org/gf75g9">https://doi.org/gf75g9</a><br />
+DOI: <a href="https://doi.org/10.1186/s12859-018-2500-z">10.1186/s12859-018-2500-z</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30558539">30558539</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6296065">PMC6296065</a></p>
+</div>
+<div id="ref-17fvHtbrH">
+<p>27. <strong>netNMF-sc: Leveraging gene-gene interactions for imputation and dimensionality reduction in single-cell expression analysis</strong><br />
+Rebecca Elyanow, Bianca Dumitrascu, Barbara E. Engelhardt, Benjamin J. Raphael<br />
+<em>Cold Spring Harbor Laboratory</em> (2019-02-08) <a href="https://doi.org/gf386x">https://doi.org/gf386x</a><br />
+DOI: <a href="https://doi.org/10.1101/544346">10.1101/544346</a></p>
+</div>
+<div id="ref-3VYPTgXw">
+<p>28. <strong>COEXPEDIA: exploring biomedical hypotheses via co-expressions associated with medical subject headings (MeSH)</strong><br />
+Sunmo Yang, Chan Yeong Kim, Sohyun Hwang, Eiru Kim, Hyojin Kim, Hongseok Shim, Insuk Lee<br />
+<em>Nucleic Acids Research</em> (2016-09-26) <a href="https://doi.org/f9v38k">https://doi.org/f9v38k</a><br />
+DOI: <a href="https://doi.org/10.1093/nar/gkw868">10.1093/nar/gkw868</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27679477">27679477</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210615">PMC5210615</a></p>
+</div>
+<div id="ref-LLInUBEI">
+<p>29. <strong>Learning Explainable Models Using Attribution Priors</strong><br />
+Gabriel Erion, Joseph D. Janizek, Pascal Sturmfels, Scott Lundberg, Su-In Lee<br />
+<em>arXiv</em> (2019-06-25) <a href="https://arxiv.org/abs/1906.10670v1">https://arxiv.org/abs/1906.10670v1</a></p>
+</div>
+<div id="ref-1BbuXJuIl">
+<p>30. <strong>A novel network regularized matrix decomposition method to detect mutated cancer genes in tumour samples with inter-patient heterogeneity</strong><br />
+Jianing Xi, Ao Li, Minghui Wang<br />
+<em>Scientific Reports</em> (2017-06-06) <a href="https://doi.org/gcq9j7">https://doi.org/gcq9j7</a><br />
+DOI: <a href="https://doi.org/10.1038/s41598-017-03141-w">10.1038/s41598-017-03141-w</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28588243">28588243</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5460199">PMC5460199</a></p>
+</div>
+<div id="ref-12cJO5Pse">
+<p>31. <strong>PIMKL: Pathway-Induced Multiple Kernel Learning</strong><br />
+Matteo Manica, Joris Cadow, Roland Mathis, María Rodríguez Martínez<br />
+<em>npj Systems Biology and Applications</em> (2019-03-05) <a href="https://doi.org/gf8ck6">https://doi.org/gf8ck6</a><br />
+DOI: <a href="https://doi.org/10.1038/s41540-019-0086-3">10.1038/s41540-019-0086-3</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30854223">30854223</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6401099">PMC6401099</a></p>
+</div>
+<div id="ref-g8OoyIPj">
+<p>32. <strong>Robust phenotype prediction from gene expression data using differential shrinkage of co-regulated genes</strong><br />
+Kourosh Zarringhalam, David Degras, Christoph Brockel, Daniel Ziemek<br />
+<em>Scientific Reports</em> (2018-01-19) <a href="https://doi.org/gcwzdn">https://doi.org/gcwzdn</a><br />
+DOI: <a href="https://doi.org/10.1038/s41598-018-19635-0">10.1038/s41598-018-19635-0</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29352257">29352257</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775343">PMC5775343</a></p>
+</div>
+<div id="ref-q9Fhy8eq">
+<p>33. <strong>STRING v10: protein–protein interaction networks, integrated over the tree of life</strong><br />
+Damian Szklarczyk, Andrea Franceschini, Stefan Wyder, Kristoffer Forslund, Davide Heller, Jaime Huerta-Cepas, Milan Simonovic, Alexander Roth, Alberto Santos, Kalliopi P. Tsafou, … Christian von Mering<br />
+<em>Nucleic Acids Research</em> (2014-10-28) <a href="https://doi.org/f64rfn">https://doi.org/f64rfn</a><br />
+DOI: <a href="https://doi.org/10.1093/nar/gku1003">10.1093/nar/gku1003</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/25352553">25352553</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4383874">PMC4383874</a></p>
+</div>
+<div id="ref-19wuAzYvo">
+<p>34. <strong>A biological network-based regularized artificial neural network model for robust phenotype prediction from gene expression data</strong><br />
+Tianyu Kang, Wei Ding, Luoyan Zhang, Daniel Ziemek, Kourosh Zarringhalam<br />
+<em>BMC Bioinformatics</em> (2017-12) <a href="https://doi.org/gf8cm6">https://doi.org/gf8cm6</a><br />
+DOI: <a href="https://doi.org/10.1186/s12859-017-1984-2">10.1186/s12859-017-1984-2</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29258445">29258445</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5735940">PMC5735940</a></p>
+</div>
+<div id="ref-owp8L957">
+<p>35. <strong>Using neural networks for reducing the dimensions of single-cell RNA-Seq data</strong><br />
+Chieh Lin, Siddhartha Jain, Hannah Kim, Ziv Bar-Joseph<br />
+<em>Nucleic Acids Research</em> (2017-07-31) <a href="https://doi.org/gcnzb7">https://doi.org/gcnzb7</a><br />
+DOI: <a href="https://doi.org/10.1093/nar/gkx681">10.1093/nar/gkx681</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28973464">28973464</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5737331">PMC5737331</a></p>
+</div>
+<div id="ref-e4tSAJkK">
+<p>36. <strong>Genetic Neural Networks: an artificial neural network architecture for capturing gene expression relationships</strong><br />
+Ameen Eetemadi, Ilias Tagkopoulos<br />
+<em>Bioinformatics</em> (2018-11-19) <a href="https://doi.org/gfnks6">https://doi.org/gfnks6</a><br />
+DOI: <a href="https://doi.org/10.1093/bioinformatics/bty945">10.1093/bioinformatics/bty945</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30452523">30452523</a></p>
 </div>
 </div>
 <!-- default theme -->

@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-09-13'
+date-meta: '2019-09-17'
 keywords:
 - machine-learning
 - deep-learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870/))
+([permalink](https://greenelab.github.io/biopriors-review/v/5f332d247a796bb854b46a274647b8dbee2a4708/))
 was automatically generated
-from [greenelab/biopriors-review@a5e7ab2](https://github.com/greenelab/biopriors-review/tree/a5e7ab235a1f6b2ad0503a62827fa5b6b129d870)
-on September 13, 2019.
+from [greenelab/biopriors-review@5f332d2](https://github.com/greenelab/biopriors-review/tree/5f332d247a796bb854b46a274647b8dbee2a4708)
+on September 17, 2019.
 </em></small>
 
 ## Authors
@@ -139,30 +139,41 @@ In each of these cases, proximity in the linear genome proved useful for modelin
   to sequence features, for on-target efficacy prediction)
 
 
-## Network- and Pathway-Constrained Models
+## Network- and pathway-based models
 
-### Applications in bulk transcriptomics
+Rather than operating on raw DNA sequence, many machine learning models in biomedicine operate on inputs without an intrinsic order.
+For instance, models may make use of gene expression data matrices (e.g. from RNA sequencing or microarray experiments), where each row represents a sample and each column a gene.
+When modeling data that is indexed by gene, one might incorporate knowledge that describes the relationships or correlations between genes, in an effort to take these relationships into account when making predictions or generating a low-dimensional representation of the data.
+This is comparable to the manner in which sequence context encourages models to consider nearby base pairs similarly.
 
-* 10.1016/j.cels.2019.04.003 (pathways -> transfer learning for rare diseases)
-* 10.1038/s41540-019-0086-3 (PPI + pathways -> phenotype prediction/cancer subtyping)
-* https://arxiv.org/pdf/1906.10670 (HumanBase -> AML drug response prediction)
-* 10.1093/bioinformatics/bty429 (HINT PPI)
-* 10.1038/s41598-017-03141-w (PPI -> mutated cancer gene detection)
-* 10.1371/journal.pcbi.1006657 (PPI + network optimization -> cancer outcome prediction)
-* 10.1186/s12859-018-2500-z (pathways -> NN structure, for predicting patient outcomes in GBM)
-* 10.1186/s12859-017-1984-2 (gene regulatory network -> NN structure, for patient outcomes in
- kidney transplantation and ulcerative colitis)
-* 10.1038/s41598-018-19635-0 (gene regulatory network -> group lasso, same datasets as ^)
-* 10.1093/bioinformatics/bty945 (gene regulatory network -> NN structure, for predicting
- gene expression given gene knockouts)
+### Applications in transcriptomics
 
-### Applications in single cell transcriptomics
+Models that take gene expression data as input can benefit from incorporating gene-level relationships.
+One form that this knowledge commonly takes is a database of gene sets, which may represent biological pathways or gene signatures related to a biological state of interest.
+PLIER [@Ki2ij7zE] uses gene set information from MSigDB [@15p5LWIVP] and cell type markers to extract a representation of whole blood gene expression data that corresponds to biological processes and reduces technical noise.
+The resulting gene set-aligned representation was used to perform accurate cell type mixture decomposition.
+MultiPLIER [@14rnBunuZ] applied the PLIER framework to the recount2 gene expression compendium [@6SPTvFXq] to develop a model that shares information across multiple tissues and diseases, including rare diseases with limited sample sizes.
+PASNet [@1Bb8CyeTY] uses data from MSigDB to inform the structure of a neural network for predicting patient outcomes in glioblastoma multiforme (GBM) from gene expression data.
+This approach has the added benefit of straightforward interpretation, as pathway nodes in the network having high weights can be inferred to correspond to important pathways in GBM outcome prediction.
 
-* 10.1038/s41592-019-0456-1 (pathways -> cell type deconvolution/pathway-level eQTLs)
-* 10.1093/nar/gkx681 (PPI; protein-DNA interactions)
-* 10.1101/544346 (PPI)
+Alternatively, gene-level relationships can take the form of a network.
+Nodes in these networks typically represent genes, and real-valued edges in these networks may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
+netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term to perform dimension reduction and impute dropouts in single-cell gene expression data.
+The authors show that using a coexpression network to extract a low-dimensional representation increases performance for cell type identification and identification of cell cycle marker genes, both as compared to using raw gene expression data and as compared to other single-cell dimension reduction methods.
+Combining gene expression data with a network-derived smoothing term has also been shown to improve performance at predicting patient drug response in acute myeloid leukemia [@LLInUBEI] and at detecting mutated cancer genes [@1BbuXJuIl].
+PIMKL [@12cJO5Pse] combines network and pathway data to predict disease-free survival from breast cancer cohorts.
+This method takes as input both RNA-seq gene expression data and copy number alteration data, but can be applied to gene expression data alone as well.
+
+Gene regulatory networks can also augment models for gene expression data.
+These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules.
+creNET [@g8OoyIPj] integrates a gene regulatory network, derived from STRING [@q9Fhy8eq], with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection based on gene expression data.
+The gene regulatory information allows the model to identify the biological regulators that are associated with the response, potentially giving mechanistic insight into differential clinical trial response.
+GRRANN [@19wuAzYvo] uses a gene regulatory network to inform the structure of a neural network, applying it to the same clinical trial data as creNET.
+Several other methods [@owp8L957; @e4tSAJkK] have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit by the network and facilitating interpretation of network predictions.
 
 ### Applications in genetics
+
+* 10.1093/bioinformatics/bty429 (HINT PPI)
 
 1. Genotype-phenotype associations (GWAS/eQTL)
    * 10.1093/bioinformatics/btu293
