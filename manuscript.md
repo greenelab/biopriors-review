@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1/))
+([permalink](https://greenelab.github.io/biopriors-review/v/702ea42ac25b626aba2c50160e294569731209e7/))
 was automatically generated
-from [greenelab/biopriors-review@5a3fa2d](https://github.com/greenelab/biopriors-review/tree/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1)
+from [greenelab/biopriors-review@702ea42](https://github.com/greenelab/biopriors-review/tree/702ea42ac25b626aba2c50160e294569731209e7)
 on September 30, 2019.
 </em></small>
 
@@ -176,24 +176,30 @@ The model with the network smoothing term, applied to a human liver data set, mo
 As genetic datasets become larger, efficient methods for gene and genetic variant selection will become even more important, and it is likely that researchers will continue to develop models that leverage gene set and network databases.
 
 
-## Other constrained models
+## Other models incorporating biological structure
 
-### Ontology-constrained models
+Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes the relationships between entities.
+The Gene Ontology (GO) [@eH3LaU5K] describes the relationships between cellular subsystems and other attributes describing proteins or genes.
+DCell [@qQP20moO] uses GO to inform the connectivity of a neural network predicting the effects of gene deletions on yeast growth.
+The authors show that DCell performs comparably to an unconstrained neural network for this task.
+Additionally, it has the advantage of interpretability: a cellular subsystem with high neuron output values under a particular gene deletion can be inferred to be strongly affected by the gene deletion, providing a putative genotype-phenotype association.
+DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amino acid sequence, using a neural network constrained by the dependencies of GO.
+However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only raw amino acid sequence and similarity to labeled proteins in the training set.
+This suggests a potential tradeoff between interpretability and predictive accuracy in the context of protein function prediction.
 
-1. Phenotype prediction
-    * 10.1038/nmeth.4627 (gene ontology -> NN structure, to predict effects of mutations on growth in yeast)
-2. Function prediction
-    * 10.1093/bioinformatics/btx624 (GO hierarchy relationships -> NN structure, for function prediction)
-    * 10.1093/bioinformatics/btx252 (PPI network + tissue ontology -> function prediction)
+Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose.
+glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome sequencing data.
+The same authors combine a similar phylogeny smoothing strategy with a sparse regression model in [@VvllhwW1], showing its utility to model caffeine intake and smoking status based on microbiome data.
+Phylogenetic trees can also be useful in describing the relationships between subclones of a tumor, which are fundamental to understanding cancer evolution and development.
+In [@VzWLIpJn], the authors use a tumor phylogeny inferred from copy number aberration (CNA) sequencing data as a smoothing term in an algorithm for deconvolving tumor subclones, providing more robust predictions than a phylogeny-free model.
+The tree structure of the phylogeny and the subclone mixture model are fit jointly to the CNA data.
 
-### Otherwise constrained models
-
-1. Cell cycle information
-    * 10.1038/nbt.3102
-    * 10.1101/526848
-   (in principle the denoising method could be generalized to other gene sets, but here they used cell cycle-relevant gene sets and emphasized the utility of this)
-2. Circadian rhythms: 10.1073/pnas.1619320114 (circular node autoencoder for modeling periodic gene expression)
-3. TAD/3D chromatin structure information? Can probably find some examples of this
+Depending on the application, incorporating other forms of structure or prior knowledge can help to inform predictions and interpretation of the model's output.
+CYCLOPS [@1Dk2FpWk6] uses a circular node autoencoder [@15jrSlkXD] to order periodic gene expression data and measure circadian rhythms.
+The authors validated the method by correctly ordering samples without temporal labels and identifying genes with known circadian expression.
+They then applied it to compare gene expression in normal and cancerous liver biopsies, identifying drug targets with circadian expression as candidates for chronotherapy.
+NetBiTE [@kKiwlzZq] uses drug-gene interaction information from GDSC [@lJFuND9F], in addition to protein interaction data, to build a tree ensemble model with splits that are biased toward high-confidence drug-gene interactions.
+The model is used to predict sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.
 
 
 ## Conclusions
