@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/702ea42ac25b626aba2c50160e294569731209e7/))
+([permalink](https://greenelab.github.io/biopriors-review/v/62c7eac2d5f6eb50b53ab2c2f94143640942784c/))
 was automatically generated
-from [greenelab/biopriors-review@702ea42](https://github.com/greenelab/biopriors-review/tree/702ea42ac25b626aba2c50160e294569731209e7)
+from [greenelab/biopriors-review@62c7eac](https://github.com/greenelab/biopriors-review/tree/62c7eac2d5f6eb50b53ab2c2f94143640942784c)
 on September 30, 2019.
 </em></small>
 
@@ -75,6 +75,10 @@ In this review, we survey approaches to learning models from biomedical data tha
 One class of commonly used approaches involves using raw sequence data to learn a representation that considers the context of each base pair.
 For models that operate on gene input, such as gene expression data or genetic variants, it can be useful to incorporate networks or pathways describing relationships between genes.
 We also consider other examples in this review, such as neural network architectures that are constrained based on biological knowledge.
+
+In addition to the methods surveyed here, there are many complementary options for utilizing heterogeneous sources of biomedical data.
+These include feature extraction or representation learning prior to modeling, and/or other data integration methods that do not necessarily involve customizing the model itself.
+We do not address these approaches in this review, but they have been covered extensively elsewhere [@15hcJCu89; @NfKILi8i].
 
 
 
@@ -202,29 +206,14 @@ NetBiTE [@kKiwlzZq] uses drug-gene interaction information from GDSC [@lJFuND9F]
 The model is used to predict sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.
 
 
-## Conclusions
+## Conclusions and future directions
 
-1. What is outside of the scope of this review?
-   (this can also go in introduction?)
-   a. Biological "constraints" vs. feature selection or feature extraction
-      from heterogeneous biological data (e.g. network embedding approaches)
-       * Example: one could use a network-based feature extraction method
-         (e.g. Node2Vec) to convert each gene in a PPI network into a set of
-         real-valued features, then use those + gene expression as input to
-         a model
-       * For purposes of keeping this review short enough, I'm trying to
-         stay away from papers like ^, but still unclear to me where exactly
-         the line should be drawn. Almost any ML model that operates on
-         sequence data can be viewed as having a feature extraction component,
-         for example.
-   b. Could kind-of consider many single-cell dimension reduction methods
-      biologically constrained (e.g. dropout/zero inflation modeling
-      approaches, etc), but this is way too broad for this review - maybe
-      refer the reader to other recent reviews of these methods.
-   c. Could also consider omics integration methods (combining, for example,
-      gene expression and epigenetic data) to be biologically constrained, but
-      we refer the reader to 10.1016/j.inffus.2018.09.012 for further detail
-      on these methods.
+As the quantity and richness of biomedical data has increased, resources such as sequence repositories and interaction databases have expanded and become more robust.
+This has created unique opportunities for integrating these resources into machine learning models in a way that considers their structure.
+Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation of network- and pathway-based models of breast cancer in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
+Ideally, improved benchmarking will lead to a better understanding of which datasets can benefit from which approaches, allowing modelers to weigh the inherent tradeoffs when applying similar models to a new dataset.
+Many of the methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of the models and algorithms described in this review would also facilitate further use and development.
+In the future, we foresee that incorporating structured biomedical data will remain a useful strategy for improving model interpretability and boosting performance when sample size is limited.
 
 
 
