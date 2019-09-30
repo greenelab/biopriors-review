@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6/))
+([permalink](https://greenelab.github.io/biopriors-review/v/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1/))
 was automatically generated
-from [greenelab/biopriors-review@f72bcb4](https://github.com/greenelab/biopriors-review/tree/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6)
+from [greenelab/biopriors-review@5a3fa2d](https://github.com/greenelab/biopriors-review/tree/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1)
 on September 30, 2019.
 </em></small>
 
@@ -166,20 +166,14 @@ Several other methods [@owp8L957; @e4tSAJkK] have also used gene regulatory netw
 
 ### Applications in genetics
 
-* 10.1093/bioinformatics/bty429 (HINT PPI)
-
-1. Genotype-phenotype associations (GWAS/eQTL)
-   * 10.1093/bioinformatics/btu293
-   * 10.1093/bioinformatics/btx677 (multivariate version of ^)
-   * 10.1111/biom.13072 (phenotype prediction using variant and GE data)
-2. Using pathways as a prior to study SNP-SNP or gene-gene interactions
- (not sure if this is truly a constraint on the model, more just a
-  strategy to reduce the number of hypothesis tests)
-   * 10.1101/182741, 10.1371/journal.pgen.1006973 (pathways + GWAS data -> GIs)
-   * 10.1371/journal.pgen.1006516 (pathways + GWAS data -> GIs)
-3. Using SNP-SNP or gene-gene networks to reduce hypothesis testing
-  burden for detecting GIs
-   * can find some examples if we decide this is a direction worth going
+Approaches to incorporating gene set or network structure into genetic studies have a long history (see, e.g. [@PuUYD4zV; @MPgqEKuv]).
+Recent applications of these methods include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression.
+netReg [@1AuHIuXiR] implements the graph-regularized dual LASSO algorithm for eQTL mapping described in [@9SBhyy2x] in a publicly available R package, based on an efficient C++ backend.
+This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model).
+eQTL information can also be used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR).
+In [@m7CdzEUG], a smoothing term derived from a gene regulatory network is used as a component in an MR model.
+The model with the network smoothing term, applied to a human liver data set, more robustly identifies genes that influence enzyme activity than an MR model that does not consider network interactions.
+As genetic datasets become larger, efficient methods for gene and genetic variant selection will become even more important, and it is likely that researchers will continue to develop models that leverage gene set and network databases.
 
 
 ## Other constrained models
