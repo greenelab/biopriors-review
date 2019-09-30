@@ -1,5 +1,5 @@
 {
-  "date": "September 17, 2019",
+  "date": "September 30, 2019",
   "authors": [
     {
       "github": "jjc2718",
@@ -56,14 +56,14 @@
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "5f332d247a796bb854b46a274647b8dbee2a4708"
+    "commit": "f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6"
   },
   "manuscript_stats": {
     "reference_counts": {
       "arxiv": 3,
-      "doi": 33,
-      "total": 36
+      "doi": 44,
+      "total": 47
     },
-    "word_count": 2326
+    "word_count": 2441
   }
 }

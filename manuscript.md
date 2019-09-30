@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-09-17'
+date-meta: '2019-09-30'
 keywords:
 - machine-learning
 - deep-learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/5f332d247a796bb854b46a274647b8dbee2a4708/))
+([permalink](https://greenelab.github.io/biopriors-review/v/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6/))
 was automatically generated
-from [greenelab/biopriors-review@5f332d2](https://github.com/greenelab/biopriors-review/tree/5f332d247a796bb854b46a274647b8dbee2a4708)
-on September 17, 2019.
+from [greenelab/biopriors-review@f72bcb4](https://github.com/greenelab/biopriors-review/tree/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6)
+on September 30, 2019.
 </em></small>
 
 ## Authors
@@ -114,29 +114,22 @@ In each of these cases, proximity in the linear genome proved useful for modelin
 
 ### Applications in variant calling and mutation detection
 
-* 10.1038/nbt.4235 (actually works on images of read pileups, but uses sequence context)
-* 10.1038/s41467-019-09025-z (single molecule sequencing: PacBio/ONT, works on featurization of sequence
-  defined in paper, outperforms ^ on these)
-* 10.1101/097469 (similar to DeepVariant, but works on raw sequences rather than images,
-  \+ less preprocessing/claims to learn more info directly from sequences)
-* 10.1101/601450 (calling of short indels using sequence information)
-* 10.1038/s41467-019-09027-x (mutation detection in tumors)
+Identification of genetic variants can also benefit from models that take into account sequence context.
+DeepVariant [@YqAWSEkm] applies a CNN to images of sequence read pileups, using read data around each candidate variant to accurately distinguish true variants from sequencing errors.
+<!-- could mention GATK4 here which uses a CNN, although nothing has been published? -->
+<!-- https://gatkforums.broadinstitute.org/gatk/discussion/10996/deep-learning-in-gatk4 -->
+CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequencing data [@UsuUETZK], using a different sequence encoding that results in better performance than DeepVariant on single molecule data.
+However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling [@KDXezqfK; @1ENge146H].
+Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNN models [@t17iSYjA].
 
 ### Applications in CRISPR guide selection
 
-* 10.1371/journal.pcbi.1005807 (shows that a wide variety of sequence attributes
-  are useful for predicting cleavage efficiency, didn't use contextual info?)
-* 10.1038/nbt.3437, 10.1038/s41551-017-0178-6 (models for predicting on-target efficacy
-  and off-target effects, uses contextual info about sequence i.e. order 2+ features)
-* 10.1038/nbt.4061 (CNN-based model for Cpf1 activity prediction,
-  convolutions of length 5 on one-hot encoded sequence)
-* 10.1186/s13059-018-1459-4 (similar to ^ but for Cas9, also uses ChIP-seq
-  data)
-* 10.1101/636472 (similar to ^)
-* 10.1093/bioinformatics/bty554 (similar to above algorithms but for
-  off-target predictions, need to read in more detail)
-* 10.1101/505602 (uses STRING -> gene network-based features, in addition
-  to sequence features, for on-target efficacy prediction)
+With the recent rise in popularity of CRISPR gene editing technology, sequence models have proven useful in improving design of single-guide RNAs (sgRNAs).
+To select the best sgRNA from multiple possibilities, one might be interested in balancing on-target efficiency with likelihood of off-target effects, both of which depend on the sgRNA sequence and its genomic context.
+Early models for prediction of on-target cleavage efficiency [@UBa1ZsWW] and off-target effects [@YL6D0uxU] used hand-engineered sequence features, in addition to other RNA-specific information such as thermodynamic sequence properties.
+More recently, CNN-based models have demonstrated improved performance using data-derived sequence features.
+CNNs have been successfully applied to CRISPR-Cas9 on-target efficiency prediction [@12MXxroFF; @GwBnBz2w], CRISPR-Cas12a (Cpf1) on-target efficiency prediction [@65fi127i], and CRISPR-Cas9 off-target effect prediction [@11czNQNnW; @12MXxroFF].
+In each case, the authors show that using a CNN to operate on raw sequence data improves sgRNA design relative to models that use hand-engineered sequence features as input.
 
 
 ## Network- and pathway-based models
