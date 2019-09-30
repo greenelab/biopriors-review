@@ -23,7 +23,7 @@
 <header id="title-block-header">
 <h1 class="title">Incorporating biological structure into machine learning models in biomedicine</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/f72bcb4019d50b6a1584a2f0bf0cf3bef96eb8b6">greenelab/biopriors-review@f72bcb4</a> on September 30, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/5a3fa2d6edabe0ad65f15e5f04cf598a3f1525f1">greenelab/biopriors-review@5a3fa2d</a> on September 30, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>Jake Crawford</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/0000-0001-6207-0782">0000-0001-6207-0782</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/jjc2718">jjc2718</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/jjc2718">jjc2718</a><br> <small> Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA · Funded by Grant XXXXXXXX </small></p></li>
@@ -52,26 +52,7 @@
 <p>Alternatively, gene-level relationships can take the form of a network. Nodes in these networks typically represent genes, and real-valued edges in these networks may represent interactions or correlations between genes, often in a tissue or cell type context of interest. netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">38</a>]</span> incorporates coexpression networks <span class="citation" data-cites="3VYPTgXw">[<a href="#ref-3VYPTgXw" role="doc-biblioref">39</a>]</span> as a smoothing term to perform dimension reduction and impute dropouts in single-cell gene expression data. The authors show that using a coexpression network to extract a low-dimensional representation increases performance for cell type identification and identification of cell cycle marker genes, both as compared to using raw gene expression data and as compared to other single-cell dimension reduction methods. Combining gene expression data with a network-derived smoothing term has also been shown to improve performance at predicting patient drug response in acute myeloid leukemia <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">40</a>]</span> and at detecting mutated cancer genes <span class="citation" data-cites="1BbuXJuIl">[<a href="#ref-1BbuXJuIl" role="doc-biblioref">41</a>]</span>. PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">42</a>]</span> combines network and pathway data to predict disease-free survival from breast cancer cohorts. This method takes as input both RNA-seq gene expression data and copy number alteration data, but can be applied to gene expression data alone as well.</p>
 <p>Gene regulatory networks can also augment models for gene expression data. These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules. creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">43</a>]</span> integrates a gene regulatory network, derived from STRING <span class="citation" data-cites="q9Fhy8eq">[<a href="#ref-q9Fhy8eq" role="doc-biblioref">44</a>]</span>, with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection based on gene expression data. The gene regulatory information allows the model to identify the biological regulators that are associated with the response, potentially giving mechanistic insight into differential clinical trial response. GRRANN <span class="citation" data-cites="19wuAzYvo">[<a href="#ref-19wuAzYvo" role="doc-biblioref">45</a>]</span> uses a gene regulatory network to inform the structure of a neural network, applying it to the same clinical trial data as creNET. Several other methods <span class="citation" data-cites="owp8L957 e4tSAJkK">[<a href="#ref-owp8L957" role="doc-biblioref">46</a>,<a href="#ref-e4tSAJkK" role="doc-biblioref">47</a>]</span> have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit by the network and facilitating interpretation of network predictions.</p>
 <h3 id="applications-in-genetics">Applications in genetics</h3>
-<ul>
-<li>10.1093/bioinformatics/bty429 (HINT PPI)</li>
-</ul>
-<ol type="1">
-<li>Genotype-phenotype associations (GWAS/eQTL)
-<ul>
-<li>10.1093/bioinformatics/btu293</li>
-<li>10.1093/bioinformatics/btx677 (multivariate version of ^)</li>
-<li>10.1111/biom.13072 (phenotype prediction using variant and GE data)</li>
-</ul></li>
-<li>Using pathways as a prior to study SNP-SNP or gene-gene interactions (not sure if this is truly a constraint on the model, more just a strategy to reduce the number of hypothesis tests)
-<ul>
-<li>10.1101/182741, 10.1371/journal.pgen.1006973 (pathways + GWAS data -&gt; GIs)</li>
-<li>10.1371/journal.pgen.1006516 (pathways + GWAS data -&gt; GIs)</li>
-</ul></li>
-<li>Using SNP-SNP or gene-gene networks to reduce hypothesis testing burden for detecting GIs
-<ul>
-<li>can find some examples if we decide this is a direction worth going</li>
-</ul></li>
-</ol>
+<p>Approaches to incorporating gene set or network structure into genetic studies have a long history (see, e.g. <span class="citation" data-cites="PuUYD4zV MPgqEKuv">[<a href="#ref-PuUYD4zV" role="doc-biblioref">48</a>,<a href="#ref-MPgqEKuv" role="doc-biblioref">49</a>]</span>). Recent applications of these methods include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression. netReg <span class="citation" data-cites="1AuHIuXiR">[<a href="#ref-1AuHIuXiR" role="doc-biblioref">50</a>]</span> implements the graph-regularized dual LASSO algorithm for eQTL mapping described in <span class="citation" data-cites="9SBhyy2x">[<a href="#ref-9SBhyy2x" role="doc-biblioref">51</a>]</span> in a publicly available R package, based on an efficient C++ backend. This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model). eQTL information can also be used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR). In <span class="citation" data-cites="m7CdzEUG">[<a href="#ref-m7CdzEUG" role="doc-biblioref">52</a>]</span>, a smoothing term derived from a gene regulatory network is used as a component in an MR model. The model with the network smoothing term, applied to a human liver data set, more robustly identifies genes that influence enzyme activity than an MR model that does not consider network interactions. As genetic datasets become larger, efficient methods for gene and genetic variant selection will become even more important, and it is likely that researchers will continue to develop models that leverage gene set and network databases.</p>
 <h2 id="other-constrained-models">Other constrained models</h2>
 <h3 id="ontology-constrained-models">Ontology-constrained models</h3>
 <ol type="1">
@@ -387,6 +368,36 @@ DOI: <a href="https://doi.org/10.1093/nar/gkx681">10.1093/nar/gkx681</a> · PMID
 Ameen Eetemadi, Ilias Tagkopoulos<br />
 <em>Bioinformatics</em> (2018-11-19) <a href="https://doi.org/gfnks6">https://doi.org/gfnks6</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/bty945">10.1093/bioinformatics/bty945</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30452523">30452523</a></p>
+</div>
+<div id="ref-PuUYD4zV">
+<p>48. <strong>Nonparametric pathway-based regression models for analysis of genomic data</strong><br />
+Z. Wei, H. Li<br />
+<em>Biostatistics</em> (2006-06-13) <a href="https://doi.org/fdmgqm">https://doi.org/fdmgqm</a><br />
+DOI: <a href="https://doi.org/10.1093/biostatistics/kxl007">10.1093/biostatistics/kxl007</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/16772399">16772399</a></p>
+</div>
+<div id="ref-MPgqEKuv">
+<p>49. <strong>Network-constrained regularization and variable selection for analysis of genomic data</strong><br />
+C. Li, H. Li<br />
+<em>Bioinformatics</em> (2008-03-01) <a href="https://doi.org/fk8n4b">https://doi.org/fk8n4b</a><br />
+DOI: <a href="https://doi.org/10.1093/bioinformatics/btn081">10.1093/bioinformatics/btn081</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/18310618">18310618</a></p>
+</div>
+<div id="ref-1AuHIuXiR">
+<p>50. <strong>netReg: network-regularized linear models for biological association studies</strong><br />
+Simon Dirmeier, Christiane Fuchs, Nikola S Mueller, Fabian J Theis<br />
+<em>Bioinformatics</em> (2017-10-25) <a href="https://doi.org/gcg9xq">https://doi.org/gcg9xq</a><br />
+DOI: <a href="https://doi.org/10.1093/bioinformatics/btx677">10.1093/bioinformatics/btx677</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29077797">29077797</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6030897">PMC6030897</a></p>
+</div>
+<div id="ref-9SBhyy2x">
+<p>51. <strong>Graph-regularized dual Lasso for robust eQTL mapping</strong><br />
+Wei Cheng, Xiang Zhang, Zhishan Guo, Yu Shi, Wei Wang<br />
+<em>Bioinformatics</em> (2014-06-11) <a href="https://doi.org/f58j6m">https://doi.org/f58j6m</a><br />
+DOI: <a href="https://doi.org/10.1093/bioinformatics/btu293">10.1093/bioinformatics/btu293</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/24931977">24931977</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4058913">PMC4058913</a></p>
+</div>
+<div id="ref-m7CdzEUG">
+<p>52. <strong>Integrative analysis of genetical genomics data incorporating network structures</strong><br />
+Bin Gao, Xu Liu, Hongzhe Li, Yuehua Cui<br />
+<em>Biometrics</em> (2019-04-29) <a href="https://doi.org/gf8f9q">https://doi.org/gf8f9q</a><br />
+DOI: <a href="https://doi.org/10.1111/biom.13072">10.1111/biom.13072</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31009063">31009063</a></p>
 </div>
 </div>
 <!-- default theme -->
