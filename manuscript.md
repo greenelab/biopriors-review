@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-09-30'
+date-meta: '2019-10-09'
 keywords:
 - machine-learning
 - deep-learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/62c7eac2d5f6eb50b53ab2c2f94143640942784c/))
+([permalink](https://greenelab.github.io/biopriors-review/v/7e8a3a2c7f58bf8fee3c1547870f54f98141fdb1/))
 was automatically generated
-from [greenelab/biopriors-review@62c7eac](https://github.com/greenelab/biopriors-review/tree/62c7eac2d5f6eb50b53ab2c2f94143640942784c)
-on September 30, 2019.
+from [greenelab/biopriors-review@7e8a3a2](https://github.com/greenelab/biopriors-review/tree/7e8a3a2c7f58bf8fee3c1547870f54f98141fdb1)
+on October 9, 2019.
 </em></small>
 
 ## Authors
@@ -69,16 +69,16 @@ This means modelers must be creative when deciding how to encode biological know
 Biomedical datasets often contain more input predictors than data samples [@1B2Ue9gnv; @JPGgWnoo].
 For example, a genetic study may genotype millions of single nucleotide polymorphisms (SNPs) in hundreds of patients, or a gene expression study may profile the expression of thousands of genes in only a handful of samples.
 Thus, it can be useful to include prior information describing the relationships between the predictors to inform the representation learned by the model.
-This stands in contrast to non-biological applications of machine learning, where one might fit a model on millions of images [@lt4BNUoG] or tens of thousands of documents [@hIUpKMFp], making inclusion of prior information unnecessary.
+This stands in contrast to non-biological applications of machine learning, where one might fit a model on millions of images [@lt4BNUoG] or tens of thousands of documents [@xPLjeqyD], making inclusion of prior information unnecessary.
 
 In this review, we survey approaches to learning models from biomedical data that incorporate external information about the structure of desirable solutions.
 One class of commonly used approaches involves using raw sequence data to learn a representation that considers the context of each base pair.
-For models that operate on gene input, such as gene expression data or genetic variants, it can be useful to incorporate networks or pathways describing relationships between genes.
+For models that operate on gene expression data or genetic variants, it can be useful to incorporate networks or pathways describing relationships between genes.
 We also consider other examples in this review, such as neural network architectures that are constrained based on biological knowledge.
 
 In addition to the methods surveyed here, there are many complementary options for utilizing heterogeneous sources of biomedical data.
 These include feature extraction or representation learning prior to modeling, and/or other data integration methods that do not necessarily involve customizing the model itself.
-We do not address these approaches in this review, but they have been covered extensively elsewhere [@15hcJCu89; @NfKILi8i].
+Many of these methods have been covered extensively elsewhere [@15hcJCu89; @NfKILi8i].
 
 
 
@@ -89,9 +89,6 @@ As convolutional neural network (CNN) approaches matured for image processing an
 CNNs are a neural network variant in which input data are grouped by spatial context to extract features for prediction.
 The definition of "spatial context" is specific to the input.
 For example, for images pixels that are nearby in 2D space might be grouped, or for genomic sequences base pairs that are nearby in the linear genome might be grouped.
-
-These approaches work by first encoding input into a numeric matrix (for DNA "one-hot" encoding is often used: A=[1,0,0,0], C=[0,1,0,0], G=[0,0,1,0], T=[0,0,0,1]).
-They then apply spatial filters to the encoded input, which are adjusted based on the data during model training.
 In this way, CNNs are able to consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
 A detailed description of how CNNs are applied to sequence data can be found in [@irSe12Sm].
 
@@ -109,7 +106,7 @@ Its convolutional model acts on a feature vector combining sequence and structur
 APARENT [@17KNm3K0B] is a CNN used to predict alternative polyadenylation (APA) from a training set of over 3 million synthetic APA reporter sequences.
 These diverse applications underscore the power of modern deep learning models to synthesize large sequence datasets.
 
-Models that consider sequence context have also been applied to impute and make predictions from epigenetic data.
+Models that consider sequence context have also been applied to epigenetic data.
 DeepSignal [@phJJvCFv] is a CNN that uses contextual electrical signals from Oxford Nanopore single-molecule sequencing data to predict 5mC or 6mA DNA methylation status.
 MRCNN [@NzYX9e9i] uses sequences of length 400, centered at CpG sites, to predict 5mC methylation status.
 Deep learning models have also been used to predict gene expression from histone modifications [@126y5dSh0; @rxMdCSQm].
@@ -126,14 +123,6 @@ CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequ
 However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling [@KDXezqfK; @1ENge146H].
 Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNN models [@t17iSYjA].
 
-### Applications in CRISPR guide selection
-
-With the recent rise in popularity of CRISPR gene editing technology, sequence models have proven useful in improving design of single-guide RNAs (sgRNAs).
-To select the best sgRNA from multiple possibilities, one might be interested in balancing on-target efficiency with likelihood of off-target effects, both of which depend on the sgRNA sequence and its genomic context.
-Early models for prediction of on-target cleavage efficiency [@UBa1ZsWW] and off-target effects [@YL6D0uxU] used hand-engineered sequence features, in addition to other RNA-specific information such as thermodynamic sequence properties.
-More recently, CNN-based models have demonstrated improved performance using data-derived sequence features.
-CNNs have been successfully applied to CRISPR-Cas9 on-target efficiency prediction [@12MXxroFF; @GwBnBz2w], CRISPR-Cas12a (Cpf1) on-target efficiency prediction [@65fi127i], and CRISPR-Cas9 off-target effect prediction [@11czNQNnW; @12MXxroFF].
-In each case, the authors show that using a CNN to operate on raw sequence data improves sgRNA design relative to models that use hand-engineered sequence features as input.
 
 
 ## Network- and pathway-based models
@@ -156,8 +145,8 @@ This approach has the added benefit of straightforward interpretation, as pathwa
 Alternatively, gene-level relationships can take the form of a network.
 Nodes in these networks typically represent genes, and real-valued edges in these networks may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
 netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term to perform dimension reduction and impute dropouts in single-cell gene expression data.
-The authors show that using a coexpression network to extract a low-dimensional representation increases performance for cell type identification and identification of cell cycle marker genes, both as compared to using raw gene expression data and as compared to other single-cell dimension reduction methods.
-Combining gene expression data with a network-derived smoothing term has also been shown to improve performance at predicting patient drug response in acute myeloid leukemia [@LLInUBEI] and at detecting mutated cancer genes [@1BbuXJuIl].
+The authors show that using a coexpression network to extract a low-dimensional representation improves performance for cell type identification and identification of cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
+Combining gene expression data with a network-derived smoothing term has also been shown to improve prediction of patient drug response in acute myeloid leukemia [@LLInUBEI] and detection of mutated cancer genes [@1BbuXJuIl].
 PIMKL [@12cJO5Pse] combines network and pathway data to predict disease-free survival from breast cancer cohorts.
 This method takes as input both RNA-seq gene expression data and copy number alteration data, but can be applied to gene expression data alone as well.
 
@@ -175,9 +164,9 @@ Recent applications of these methods include expression quantitative trait loci 
 netReg [@1AuHIuXiR] implements the graph-regularized dual LASSO algorithm for eQTL mapping described in [@9SBhyy2x] in a publicly available R package, based on an efficient C++ backend.
 This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model).
 eQTL information can also be used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR).
-In [@m7CdzEUG], a smoothing term derived from a gene regulatory network is used as a component in an MR model.
-The model with the network smoothing term, applied to a human liver data set, more robustly identifies genes that influence enzyme activity than an MR model that does not consider network interactions.
-As genetic datasets become larger, efficient methods for gene and genetic variant selection will become even more important, and it is likely that researchers will continue to develop models that leverage gene set and network databases.
+In [@m7CdzEUG], a smoothing term derived from a gene regulatory network is used in an MR model.
+The model with the network smoothing term, applied to a human liver data set, more robustly identifies genes that influence enzyme activity than a network-agnostic model.
+As genetic datasets become larger, it is likely that researchers will continue to develop models that leverage gene set and network databases.
 
 
 ## Other models incorporating biological structure
@@ -210,10 +199,10 @@ The model is used to predict sensitivity to drugs that inhibit critical signalin
 
 As the quantity and richness of biomedical data has increased, resources such as sequence repositories and interaction databases have expanded and become more robust.
 This has created unique opportunities for integrating these resources into machine learning models in a way that considers their structure.
-Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation of network- and pathway-based models of breast cancer in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
-Ideally, improved benchmarking will lead to a better understanding of which datasets can benefit from which approaches, allowing modelers to weigh the inherent tradeoffs when applying similar models to a new dataset.
+Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
+Ideally, improved benchmarking will lead to a better understanding of which datasets can benefit from which approaches, guiding application of similar models to new datasets.
 Many of the methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of the models and algorithms described in this review would also facilitate further use and development.
-In the future, we foresee that incorporating structured biomedical data will remain a useful strategy for improving model interpretability and boosting performance when sample size is limited.
+In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
 
 
 
