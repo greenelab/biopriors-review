@@ -1,0 +1,106 @@
+Reference Annotations
+=====================
+
+Sequence models:
+
+[**]: BPNet (https://doi.org/10.1101/737981)
+
+This paper describes BPNet, a neural network for predicting transcription
+factor (TF) binding profiles from raw DNA sequence. The model is able to
+accurately infer the spacing and periodicity of pluripotency-related TFs in
+mouse embryonic stem cells, leading to an improved understanding of the motif
+syntax of combinatorial TF binding in cell development.
+
+[*]: cDeepbind (https://doi.org/10.1101/345140)
+
+cDeepbind is a neural network model for predicting RNA binding protein (RBP)
+specificity from RNA sequence and secondary structure information. The authors
+show that this combined approach provides an improvement over previous models
+that use only sequence information.
+
+[*]: DeepDiff (https://doi.org/10.1093/bioinformatics/bty612)
+
+DeepDiff uses a long short-term memory neural network to predict differential
+gene expression from the spatial structure of histone modification
+measurements. The network has a multi-task objective, enabling gene expression
+predictions to be made simultaneously in multiple cell types.
+
+[**]: DeepVariant (https://doi.org/10.1038/nbt.4235)
+
+This paper describes DeepVariant, a neural network model for distinguishing
+true genetic variants from errors in next-generation DNA sequencing data. The
+model adapts techniques from the image processing community to fit a model on
+images of read pileups around candidate variants, using information about the
+sequence around the candidate variant site to make predictions about the true
+genotype at the site.
+
+Network/pathway models:
+
+[**]: PLIER (https://doi.org/10.1038/s41592-019-0456-1)
+
+This paper describes a "pathway-level information extractor" (PLIER), a method
+for reducing the dimension of gene expression data in a manner that aligns with
+known biological pathways or informative gene sets. The method can also reduce
+the effects of technical noise. The authors show that PLIER can be used to
+improve cell type inference and as a component in eQTL studies.
+
+[**]: netNMF-sc (https://doi.org/10.1101/544346)
+
+netNMF-sc is a dimension reduction method that uses network information to
+"smooth" a matrix factorization of single-cell gene expression data, such that
+genes that are connected in the network have a similar low-dimensional
+representation. Inclusion of network information is particularly useful when
+analyzing single-cell expression data, due to its ability to mitigate "dropouts"
+and other sources of variability that are present at the single cell level.
+
+[*]: attribution priors (https://arxiv.org/abs/1906.10670v1)
+
+This paper describes "model attribution priors", or a method for constraining
+a machine learning model's behavior during training with prior beliefs or
+expectations about the data or problem structure. As an example of this concept,
+the authors show that incorporation of network data improves the performance of
+a model for drug response prediction in acute myeloid leukemia.
+
+[*]: PIMKL (https://doi.org/10.1038/s41540-019-0086-3)
+
+In this paper, the authors present an algorithm for combining gene expression
+and copy number data with prior information, such as gene networks and pathways
+or gene set annotations, to predict survival in breast cancer. The weights
+learned by the model are also interpretable, providing a putative set of
+explanatory features for the prediction task.
+
+[**]: creNET (https://doi.org/10.1038/s41598-018-19635-0)
+
+This work describes creNET, a regression model for gene expression data that
+uses information about gene regulation to differentially weight or penalize
+gene sets that are co-regulated. The authors show that the model can be used to
+predict phenotype from gene expression data in clinical trials. The model also
+provides interpretable weights for each gene regulator.
+
+Other models:
+
+[**]: DCell (https://doi.org/10.1038/nmeth.4627)
+
+This paper presents DCell, a neural network model for prediction of yeast
+growth phenotype from gene deletions. The structure of the neural network is
+constrained by the relationships encoded in the Gene Ontology (GO), enabling
+predictions for a given input to be interpreted based on the subsystems of GO
+that they activate. Thus, the neural network can be seen as connecting genotype
+to phenotype.
+
+[*]: DeepGO (https://doi.org/10.1093/bioinformatics/btx624)
+
+Here, the authors describe a method for predicting protein function from amino
+acid sequence, incorporating the dependency structure of the Gene Ontology (GO)
+into their neural network used for prediction. Using the GO information
+provides a performance improvement over similar models that do not incorporate
+this information.
+
+[**]: NetBITE (https://arxiv.org/abs/1808.06603v2)
+
+This paper describes a method for using prior knowledge about drug targets to
+inform the structure of a tree ensemble model, used for predicting IC50 drug
+sensitivity from gene expression data. The model also uses a protein
+interaction network to "smooth" the gene weights, such that genes that are
+related in the network will have a similar influence on predictions.
+
