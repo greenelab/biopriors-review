@@ -12,25 +12,32 @@
         "Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
         "Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA"
       ],
-      "funders": "Grant XXXXXXXX",
+      "funders": "National Human Genome Research Institute (R01 HG010067)",
       "affiliation_numbers": [
         1,
         2
       ]
     },
     {
-      "github": "janeroe",
-      "name": "Jane Roe",
-      "initials": "JR",
-      "orcid": "XXXX-XXXX-XXXX-XXXX",
-      "email": "jane.roe@whatever.edu",
+      "github": "cgreene",
+      "name": "Casey S. Greene",
+      "initials": "CSG",
+      "orcid": "0000-0001-8713-9213",
+      "email": "greenescientist@gmail.com",
+      "twitter": "greenescientist",
       "affiliations": [
-        "Department of Something, University of Whatever",
-        "Department of Whatever, University of Something"
+        "Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
+        "Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA"
+      ],
+      "funders": [
+        "The Gordon and Betty Moore Foundation (GBMF 4552)",
+        "National Human Genome Research Institute (R01 HG010067)",
+        "National Cancer Institute (R01 CA237170)",
+        "Alex''s Lemonade Stand Foundation (CCDL)"
       ],
       "affiliation_numbers": [
-        3,
-        4
+        2,
+        3
       ]
     }
   ],
@@ -44,19 +51,15 @@
       "affiliation_number": 2
     },
     {
-      "affiliation": "Department of Something, University of Whatever",
+      "affiliation": "Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA",
       "affiliation_number": 3
-    },
-    {
-      "affiliation": "Department of Whatever, University of Something",
-      "affiliation_number": 4
     }
   ],
   "ci_source": {
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "1961380339913e0ca5f4dc35923acc63e188ef30"
+    "commit": "27c643e031bf143458ff5fd55d35f4912343dede"
   },
   "manuscript_stats": {
     "reference_counts": {

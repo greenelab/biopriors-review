@@ -1,14 +1,14 @@
 ---
 author-meta:
 - Jake Crawford
-- Jane Roe
+- Casey S. Greene
 date-meta: '2019-10-11'
 keywords:
-- machine-learning
-- deep-learning
-- gene-networks
-- pathway-databases
-- literature-review
+- machine learning
+- deep learning
+- gene networks
+- pathway databases
+- literature review
 lang: en-US
 title: Incorporating biological structure into machine learning models in biomedicine
 ...
@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/1961380339913e0ca5f4dc35923acc63e188ef30/))
+([permalink](https://greenelab.github.io/biopriors-review/v/27c643e031bf143458ff5fd55d35f4912343dede/))
 was automatically generated
-from [greenelab/biopriors-review@1961380](https://github.com/greenelab/biopriors-review/tree/1961380339913e0ca5f4dc35923acc63e188ef30)
+from [greenelab/biopriors-review@27c643e](https://github.com/greenelab/biopriors-review/tree/27c643e031bf143458ff5fd55d35f4912343dede)
 on October 11, 2019.
 </em></small>
 
@@ -39,16 +39,19 @@ on October 11, 2019.
     [jjc2718](https://twitter.com/jjc2718)<br>
   <small>
      Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
-     · Funded by Grant XXXXXXXX
+     · Funded by National Human Genome Research Institute (R01 HG010067)
   </small>
 
-+ **Jane Roe**<br>
++ **Casey S. Greene**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
-    [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
+    [0000-0001-8713-9213](https://orcid.org/0000-0001-8713-9213)
     · ![GitHub icon](images/github.svg){.inline_icon}
-    [janeroe](https://github.com/janeroe)<br>
+    [cgreene](https://github.com/cgreene)
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
+    [greenescientist](https://twitter.com/greenescientist)<br>
   <small>
-     Department of Something, University of Whatever; Department of Whatever, University of Something
+     Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA
+     · Funded by ['The Gordon and Betty Moore Foundation (GBMF 4552)', 'National Human Genome Research Institute (R01 HG010067)', 'National Cancer Institute (R01 CA237170)', "Alex''s Lemonade Stand Foundation (CCDL)"]
   </small>
 
 
