@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/db540f55d6a6db19a25f24ca6002478a9ed2bc09/))
+([permalink](https://greenelab.github.io/biopriors-review/v/a48dd1c80d3d36feebb8d60a55ff4b54173d5efa/))
 was automatically generated
-from [greenelab/biopriors-review@db540f5](https://github.com/greenelab/biopriors-review/tree/db540f55d6a6db19a25f24ca6002478a9ed2bc09)
+from [greenelab/biopriors-review@a48dd1c](https://github.com/greenelab/biopriors-review/tree/a48dd1c80d3d36feebb8d60a55ff4b54173d5efa)
 on October 11, 2019.
 </em></small>
 
@@ -200,11 +200,11 @@ The model predicts sensitivity to drugs that inhibit critical signaling pathways
 
 ## Conclusions and future directions
 
-As the quantity and richness of biomedical data has increased, resources such as sequence repositories and interaction databases have expanded and become more robust.
-This has created unique opportunities for integrating these resources into machine learning models in a way that considers their structure.
+As the quantity and richness of biomedical data has increased, sequence repositories and interaction databases have expanded and become more robust.
+This raises opportunities to integrate these resources into the structure of machine learning models.
 Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
-Ideally, improved benchmarking will lead to a better understanding of which datasets can benefit from which approaches, guiding application of similar models to new datasets.
-Many of the methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of the models and algorithms described in this review would also facilitate further use and development.
+Improved benchmarking should lead to a better understanding of which dataset characteristics align with which approaches.
+Many methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of these models and algorithms would facilitate further use and development.
 In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
 
 
