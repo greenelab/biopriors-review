@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/27c643e031bf143458ff5fd55d35f4912343dede/))
+([permalink](https://greenelab.github.io/biopriors-review/v/2f0002df8705d2884394a15e8011d0af379ed330/))
 was automatically generated
-from [greenelab/biopriors-review@27c643e](https://github.com/greenelab/biopriors-review/tree/27c643e031bf143458ff5fd55d35f4912343dede)
+from [greenelab/biopriors-review@2f0002d](https://github.com/greenelab/biopriors-review/tree/2f0002df8705d2884394a15e8011d0af379ed330)
 on October 11, 2019.
 </em></small>
 
@@ -128,46 +128,46 @@ Detection of somatic mutations is a distinct but related challenge to detection 
 
 ## Network- and pathway-based models
 
-Rather than operating on raw DNA sequence, many machine learning models in biomedicine operate on inputs without an intrinsic order.
-For instance, models may make use of gene expression data matrices (e.g. from RNA sequencing or microarray experiments), where each row represents a sample and each column a gene.
-When modeling data that is indexed by gene, one might incorporate knowledge that describes the relationships or correlations between genes, in an effort to take these relationships into account when making predictions or generating a low-dimensional representation of the data.
-This is comparable to the manner in which sequence context encourages models to consider nearby base pairs similarly.
+Rather than operating on sequences, many machine learning models in biomedicine operate on inputs that lack intrinsic order.
+Models may make use of gene expression data matrices from RNA sequencing or microarray experiments in which rows represent samples and columns represent genes.
+To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data.
+This is comparable to the manner in which sequence context pushes models to consider nearby base pairs similarly.
 
 ### Applications in transcriptomics
 
-Models that take gene expression data as input can benefit from incorporating gene-level relationships.
-One form that this knowledge commonly takes is a database of gene sets, which may represent biological pathways or gene signatures related to a biological state of interest.
-PLIER [@Ki2ij7zE] uses gene set information from MSigDB [@15p5LWIVP] and cell type markers to extract a representation of whole blood gene expression data that corresponds to biological processes and reduces technical noise.
-The resulting gene set-aligned representation was used to perform accurate cell type mixture decomposition.
-MultiPLIER [@14rnBunuZ] applied the PLIER framework to the recount2 gene expression compendium [@6SPTvFXq] to develop a model that shares information across multiple tissues and diseases, including rare diseases with limited sample sizes.
-PASNet [@1Bb8CyeTY] uses data from MSigDB to inform the structure of a neural network for predicting patient outcomes in glioblastoma multiforme (GBM) from gene expression data.
-This approach has the added benefit of straightforward interpretation, as pathway nodes in the network having high weights can be inferred to correspond to important pathways in GBM outcome prediction.
+Models built from gene expression data can benefit from incorporating gene-level relationships.
+One form that this knowledge commonly takes is a database of gene sets, which may represent biological pathways or gene signatures for a biological state of interest.
+PLIER [@Ki2ij7zE] uses gene set information from MSigDB [@15p5LWIVP] and cell type markers to extract a representation of gene expression data that corresponds to biological processes and reduces technical noise.
+The resulting gene set-aligned representation accurately decomposed cell type mixtures.
+MultiPLIER [@14rnBunuZ] applied PLIER to the recount2 gene expression compendium [@6SPTvFXq] to develop a model that shares information across multiple tissues and diseases, including rare diseases with limited sample sizes.
+PASNet [@1Bb8CyeTY] uses MSigDB to inform the structure of a neural network for predicting patient outcomes in glioblastoma multiforme (GBM) from gene expression data.
+This approach aids interpretation, as pathway nodes in the network with high weights can be inferred to correspond to certain pathways in GBM outcome prediction.
 
-Alternatively, gene-level relationships can take the form of a network.
-Nodes in these networks typically represent genes, and real-valued edges in these networks may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
-netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term to perform dimension reduction and impute dropouts in single-cell gene expression data.
-The authors show that using a coexpression network to extract a low-dimensional representation improves performance for cell type identification and identification of cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
-Combining gene expression data with a network-derived smoothing term has also been shown to improve prediction of patient drug response in acute myeloid leukemia [@LLInUBEI] and detection of mutated cancer genes [@1BbuXJuIl].
+Gene-level relationships can also be represented with networks.
+Network nodes typically represent genes and real-valued edges may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
+netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data.
+The coexpression network improves performance for identifying cell types and of cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
+Combining gene expression data with a network-derived smoothing term also improved prediction of patient drug response in acute myeloid leukemia [@LLInUBEI] and detection of mutated cancer genes [@1BbuXJuIl].
 PIMKL [@12cJO5Pse] combines network and pathway data to predict disease-free survival from breast cancer cohorts.
-This method takes as input both RNA-seq gene expression data and copy number alteration data, but can be applied to gene expression data alone as well.
+This method takes as input both RNA-seq gene expression data and copy number alteration data, but can also be applied to gene expression data alone.
 
 Gene regulatory networks can also augment models for gene expression data.
 These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules.
-creNET [@g8OoyIPj] integrates a gene regulatory network, derived from STRING [@q9Fhy8eq], with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection based on gene expression data.
-The gene regulatory information allows the model to identify the biological regulators that are associated with the response, potentially giving mechanistic insight into differential clinical trial response.
-GRRANN [@19wuAzYvo] uses a gene regulatory network to inform the structure of a neural network, applying it to the same clinical trial data as creNET.
-Several other methods [@owp8L957; @e4tSAJkK] have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit by the network and facilitating interpretation of network predictions.
+creNET [@g8OoyIPj] integrates a gene regulatory network, derived from STRING [@q9Fhy8eq], with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection.
+The gene regulatory information allows the model to identify the biological regulators associated with the response, potentially giving mechanistic insight into differential clinical trial response.
+GRRANN [@19wuAzYvo], which was applied to the same data as creNET, uses a gene regulatory network to inform the structure of a neural network.
+Several other methods [@owp8L957; @e4tSAJkK] have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit and facilitating interpretation.
 
 ### Applications in genetics
 
-Approaches to incorporating gene set or network structure into genetic studies have a long history (see, e.g. [@PuUYD4zV; @MPgqEKuv]).
-Recent applications of these methods include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression.
-netReg [@1AuHIuXiR] implements the graph-regularized dual LASSO algorithm for eQTL mapping described in [@9SBhyy2x] in a publicly available R package, based on an efficient C++ backend.
+Approaches that incorporate gene set or network structure into genetic studies have a long history [@PuUYD4zV; @MPgqEKuv].
+Recent applications include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression.
+netReg [@1AuHIuXiR] implements a graph-regularized dual LASSO algorithm for eQTL mapping [@9SBhyy2x] in a publicly available R package.
 This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model).
-eQTL information can also be used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR).
+eQTL information is also used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR).
 In [@m7CdzEUG], a smoothing term derived from a gene regulatory network is used in an MR model.
-The model with the network smoothing term, applied to a human liver data set, more robustly identifies genes that influence enzyme activity than a network-agnostic model.
-As genetic datasets become larger, it is likely that researchers will continue to develop models that leverage gene set and network databases.
+The model with the network smoothing term, applied to a human liver dataset, more robustly identifies genes that influence enzyme activity than a network-agnostic model.
+As genetic datasets grow, we expect that researchers will continue to develop models that leverage gene set and network databases.
 
 
 ## Other models incorporating biological structure
