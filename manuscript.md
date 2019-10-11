@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Jane Roe
-date-meta: '2019-10-09'
+date-meta: '2019-10-11'
 keywords:
 - machine-learning
 - deep-learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/7e8a3a2c7f58bf8fee3c1547870f54f98141fdb1/))
+([permalink](https://greenelab.github.io/biopriors-review/v/11f3b40a8013ae551370a37254274689daba00a1/))
 was automatically generated
-from [greenelab/biopriors-review@7e8a3a2](https://github.com/greenelab/biopriors-review/tree/7e8a3a2c7f58bf8fee3c1547870f54f98141fdb1)
-on October 9, 2019.
+from [greenelab/biopriors-review@11f3b40](https://github.com/greenelab/biopriors-review/tree/11f3b40a8013ae551370a37254274689daba00a1)
+on October 11, 2019.
 </em></small>
 
 ## Authors
@@ -60,26 +60,24 @@ on October 9, 2019.
 
 ## Introduction
 
-When applying machine learning techniques to biomedical datasets, it can be challenging to distinguish signal from noise, particularly in the presence of limited amounts of data.
+It can be challenging to distinguish signal from noise in biomedical datasets, and machine learning methods are particularly hampered when the amount of available training data is small.
+Incorporating biomedical knowledge into machine learning models can reveal patterns in noisy data [@Zm1iJl59] and aid model interpretation [@1HLd4LXUB].
 Biological knowledge can take many forms, including genomic sequences, pathway databases, gene interaction networks, and knowledge hierarchies such as the Gene Ontology [@eH3LaU5K].
-Incorporating these resources in machine learning models can be helpful in identifying patterns in noisy data [@Zm1iJl59] and in interpreting model predictions [@1HLd4LXUB].
 However, there is often no canonical way to encode these structures as real-valued predictors.
-This means modelers must be creative when deciding how to encode biological knowledge that they expect will be relevant to the task in models.
+Modelers must creatively decide how to encode biological knowledge that they expect will be relevant to the task.
 
 Biomedical datasets often contain more input predictors than data samples [@1B2Ue9gnv; @JPGgWnoo].
-For example, a genetic study may genotype millions of single nucleotide polymorphisms (SNPs) in hundreds of patients, or a gene expression study may profile the expression of thousands of genes in only a handful of samples.
-Thus, it can be useful to include prior information describing the relationships between the predictors to inform the representation learned by the model.
-This stands in contrast to non-biological applications of machine learning, where one might fit a model on millions of images [@lt4BNUoG] or tens of thousands of documents [@xPLjeqyD], making inclusion of prior information unnecessary.
+A genetic study may genotype millions of single nucleotide polymorphisms (SNPs) in thousands of individuals, or a gene expression study may profile the expression of thousands of genes in tens of samples.
+Thus, it can be useful to include prior information describing relationships between predictors to inform the representation learned by the model.
+This contrasts with non-biological applications of machine learning, where one might fit a model on millions of images [@lt4BNUoG] or tens of thousands of documents [@xPLjeqyD], making inclusion of prior information unnecessary.
 
-In this review, we survey approaches to learning models from biomedical data that incorporate external information about the structure of desirable solutions.
-One class of commonly used approaches involves using raw sequence data to learn a representation that considers the context of each base pair.
+We review approaches that incorporate external information about the structure of desirable solutions to learn from biomedical data.
+One class of commonly used approaches learns a representation that considers the context of each base pair from raw sequence data.
 For models that operate on gene expression data or genetic variants, it can be useful to incorporate networks or pathways describing relationships between genes.
-We also consider other examples in this review, such as neural network architectures that are constrained based on biological knowledge.
+We also consider other examples, such as neural network architectures that are constrained based on biological knowledge.
 
-In addition to the methods surveyed here, there are many complementary options for utilizing heterogeneous sources of biomedical data.
-These include feature extraction or representation learning prior to modeling, and/or other data integration methods that do not necessarily involve customizing the model itself.
-Many of these methods have been covered extensively elsewhere [@15hcJCu89; @NfKILi8i].
-
+There are many complementary ways to incorporate heterogeneous sources of biomedical data into the learning process, which have been covered elsewhere [@15hcJCu89; @NfKILi8i].
+These include feature extraction or representation learning prior to modeling and/or other data integration methods that do not necessarily involve customizing the model itself.
 
 
 ## Sequence models
