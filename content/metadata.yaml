@@ -1,11 +1,11 @@
 ---
 title: "Incorporating biological structure into machine learning models in biomedicine"
 keywords:
-  - machine-learning
-  - deep-learning
-  - gene-networks
-  - pathway-databases
-  - literature-review
+  - machine learning
+  - deep learning
+  - gene networks
+  - pathway databases
+  - literature review
 lang: en-US
 author_info:
   -
@@ -18,15 +18,20 @@ author_info:
     affiliations:
       - Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
       - Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
-    funders: Grant XXXXXXXX
+    funders: National Human Genome Research Institute (R01 HG010067)
   -
     github: cgreene
     name: Casey S. Greene
     initials: CSG
     orcid: 0000-0001-8713-9213
     email: greenescientist@gmail.com
+    twitter: greenescientist
     affiliations:
       - Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA
-      - Childhood Cancer Data Lab, Alex's Lemonade Stand Foundation. Philadelphia PA
-    funders: The Gordon and Betty Moore Foundation (GBMF 4552), National Human Genome Research Institute (), National Cancer Institute (), and Alex's Lemonade Stand Foundation (CCDL)
+      - Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA
+    funders:
+      - The Gordon and Betty Moore Foundation (GBMF 4552)
+      - National Human Genome Research Institute (R01 HG010067)
+      - National Cancer Institute (R01 CA237170)
+      - Alex''s Lemonade Stand Foundation (CCDL)
 
