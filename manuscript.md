@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/2b2b4b576418bcb068e40948773fb3822609d563/))
+([permalink](https://greenelab.github.io/biopriors-review/v/db540f55d6a6db19a25f24ca6002478a9ed2bc09/))
 was automatically generated
-from [greenelab/biopriors-review@2b2b4b5](https://github.com/greenelab/biopriors-review/tree/2b2b4b576418bcb068e40948773fb3822609d563)
+from [greenelab/biopriors-review@db540f5](https://github.com/greenelab/biopriors-review/tree/db540f55d6a6db19a25f24ca6002478a9ed2bc09)
 on October 11, 2019.
 </em></small>
 
@@ -57,7 +57,11 @@ on October 11, 2019.
 
 
 ## Abstract {.page_break_before}
-
+In biomedical applications of machine learning, relevant information often has a rich structure that is not easily encoded as real-valued predictors.
+Examples of such data include DNA or RNA sequences, gene sets or pathways, gene interaction or coexpression networks, ontologies, and phylogenetic trees.
+We highlight recent examples of machine learning models that use structure to constrain model architecture or incorporate structured data into model training.
+For machine learning in biomedicine, where sample size is limited and model interpretability is critical, incorporating prior knowledge in the form of structured data can be particularly useful.
+The area of research would benefit from performant open source implementations and independent benchmarking efforts.
 
 
 
@@ -202,6 +206,107 @@ Going forward, there is an outstanding need for benchmarks comparing these appro
 Ideally, improved benchmarking will lead to a better understanding of which datasets can benefit from which approaches, guiding application of similar models to new datasets.
 Many of the methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of the models and algorithms described in this review would also facilitate further use and development.
 In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
+
+
+
+## Reference Annotations
+
+Annotation for BPNet [@miFkgNt5]:
+
+This paper describes BPNet, a neural network for predicting transcription
+factor (TF) binding profiles from raw DNA sequence. The model is able to
+accurately infer the spacing and periodicity of pluripotency-related TFs in
+mouse embryonic stem cells, leading to an improved understanding of the motif
+syntax of combinatorial TF binding in cell development.
+
+Annotation for cDeepbind [@NyVCOHer]:
+
+cDeepbind is a neural network model for predicting RNA binding protein (RBP)
+specificity from RNA sequence and secondary structure information. The authors
+show that this combined approach provides an improvement over previous models
+that use only sequence information.
+
+Annotation for DeepDiff [@rxMdCSQm]:
+
+DeepDiff uses a long short-term memory neural network to predict differential
+gene expression from the spatial structure of histone modification
+measurements. The network has a multi-task objective, enabling gene expression
+predictions to be made simultaneously in multiple cell types.
+
+Annotation for DeepVariant [@YqAWSEkm]:
+
+This paper describes DeepVariant, a neural network model for distinguishing
+true genetic variants from errors in next-generation DNA sequencing data. The
+model adapts techniques from the image processing community to fit a model on
+images of read pileups around candidate variants, using information about the
+sequence around the candidate variant site to make predictions about the true
+genotype at the site.
+
+Annotation for PLIER [@Ki2ij7zE]:
+
+This paper describes a "pathway-level information extractor" (PLIER), a method
+for reducing the dimension of gene expression data in a manner that aligns with
+known biological pathways or informative gene sets. The method can also reduce
+the effects of technical noise. The authors show that PLIER can be used to
+improve cell type inference and as a component in eQTL studies.
+
+Annotation for netNMF-sc [@17fvHtbrH]:
+
+netNMF-sc is a dimension reduction method that uses network information to
+"smooth" a matrix factorization of single-cell gene expression data, such that
+genes that are connected in the network have a similar low-dimensional
+representation. Inclusion of network information is particularly useful when
+analyzing single-cell expression data, due to its ability to mitigate "dropouts"
+and other sources of variability that are present at the single cell level.
+
+Annotation for Attribution Priors [@LLInUBEI]:
+
+This paper describes "model attribution priors", or a method for constraining
+a machine learning model's behavior during training with prior beliefs or
+expectations about the data or problem structure. As an example of this concept,
+the authors show that incorporation of network data improves the performance of
+a model for drug response prediction in acute myeloid leukemia.
+
+Annotation for PIMKL [@12cJO5Pse]:
+
+In this paper, the authors present an algorithm for combining gene expression
+and copy number data with prior information, such as gene networks and pathways
+or gene set annotations, to predict survival in breast cancer. The weights
+learned by the model are also interpretable, providing a putative set of
+explanatory features for the prediction task.
+
+Annotation for creNET [@g8OoyIPj]:
+
+This work describes creNET, a regression model for gene expression data that
+uses information about gene regulation to differentially weight or penalize
+gene sets that are co-regulated. The authors show that the model can be used to
+predict phenotype from gene expression data in clinical trials. The model also
+provides interpretable weights for each gene regulator.
+
+Annotation for DCell [@qQP20moO]:
+
+This paper presents DCell, a neural network model for prediction of yeast
+growth phenotype from gene deletions. The structure of the neural network is
+constrained by the relationships encoded in the Gene Ontology (GO), enabling
+predictions for a given input to be interpreted based on the subsystems of GO
+that they activate. Thus, the neural network can be seen as connecting genotype
+to phenotype.
+
+Annotation for DeepGO [@TIQTmEOG]:
+
+Here, the authors describe a method for predicting protein function from amino
+acid sequence, incorporating the dependency structure of the Gene Ontology (GO)
+into their neural network used for prediction. Using the GO information
+provides a performance improvement over similar models that do not incorporate
+this information.
+
+Annotation for NetBITE [@kKiwlzZq]:
+
+This paper describes a method for using prior knowledge about drug targets to
+inform the structure of a tree ensemble model, used for predicting IC50 drug
+sensitivity from gene expression data. The model also uses a protein
+interaction network to "smooth" the gene weights, such that genes that are
+related in the network will have a similar influence on predictions.
 
 
 
