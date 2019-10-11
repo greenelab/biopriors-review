@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/11f3b40a8013ae551370a37254274689daba00a1/))
+([permalink](https://greenelab.github.io/biopriors-review/v/1961380339913e0ca5f4dc35923acc63e188ef30/))
 was automatically generated
-from [greenelab/biopriors-review@11f3b40](https://github.com/greenelab/biopriors-review/tree/11f3b40a8013ae551370a37254274689daba00a1)
+from [greenelab/biopriors-review@1961380](https://github.com/greenelab/biopriors-review/tree/1961380339913e0ca5f4dc35923acc63e188ef30)
 on October 11, 2019.
 </em></small>
 
@@ -169,28 +169,28 @@ As genetic datasets become larger, it is likely that researchers will continue t
 
 ## Other models incorporating biological structure
 
-Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes the relationships between entities.
+Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes relationships between entities.
 The Gene Ontology (GO) [@eH3LaU5K] describes the relationships between cellular subsystems and other attributes describing proteins or genes.
 DCell [@qQP20moO] uses GO to inform the connectivity of a neural network predicting the effects of gene deletions on yeast growth.
-The authors show that DCell performs comparably to an unconstrained neural network for this task.
-Additionally, it has the advantage of interpretability: a cellular subsystem with high neuron output values under a particular gene deletion can be inferred to be strongly affected by the gene deletion, providing a putative genotype-phenotype association.
-DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amino acid sequence, using a neural network constrained by the dependencies of GO.
-However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only raw amino acid sequence and similarity to labeled proteins in the training set.
-This suggests a potential tradeoff between interpretability and predictive accuracy in the context of protein function prediction.
+DCell performs comparably to an unconstrained neural network for this task.
+Additionally, it is easier to interpret: a cellular subsystem with high neuron outputs under a particular gene deletion can be inferred to be strongly affected by the gene deletion, providing a putative genotype-phenotype association.
+DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amino acid sequence with a neural network constrained by the dependencies of GO.
+However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins.
+This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.
 
 Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose.
-glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome sequencing data.
-The same authors combine a similar phylogeny smoothing strategy with a sparse regression model in [@VvllhwW1], showing its utility to model caffeine intake and smoking status based on microbiome data.
-Phylogenetic trees can also be useful in describing the relationships between subclones of a tumor, which are fundamental to understanding cancer evolution and development.
-In [@VzWLIpJn], the authors use a tumor phylogeny inferred from copy number aberration (CNA) sequencing data as a smoothing term in an algorithm for deconvolving tumor subclones, providing more robust predictions than a phylogeny-free model.
+glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data.
+The same authors combine a similar phylogeny smoothing strategy with sparse regression to model caffeine intake and smoking status based on microbiome data [@VvllhwW1].
+Phylogenetic trees can also describe the relationships between subclones of a tumor, which are fundamental to understanding cancer evolution and development.
+Using a tumor phylogeny inferred from copy number aberration (CNA) sequencing data as a smoothing term for deconvolving tumor subclones provided more robust predictions than a phylogeny-free model [@VzWLIpJn].
 The tree structure of the phylogeny and the subclone mixture model are fit jointly to the CNA data.
 
-Depending on the application, incorporating other forms of structure or prior knowledge can help to inform predictions and interpretation of the model's output.
-CYCLOPS [@1Dk2FpWk6] uses a circular node autoencoder [@15jrSlkXD] to order periodic gene expression data and measure circadian rhythms.
+Depending on the application, other forms of structure or prior knowledge can inform predictions and interpretation of the model's output.
+CYCLOPS [@1Dk2FpWk6] uses a circular node autoencoder [@15jrSlkXD] to order periodic gene expression data and estimate circadian rhythms.
 The authors validated the method by correctly ordering samples without temporal labels and identifying genes with known circadian expression.
 They then applied it to compare gene expression in normal and cancerous liver biopsies, identifying drug targets with circadian expression as candidates for chronotherapy.
 NetBiTE [@kKiwlzZq] uses drug-gene interaction information from GDSC [@lJFuND9F], in addition to protein interaction data, to build a tree ensemble model with splits that are biased toward high-confidence drug-gene interactions.
-The model is used to predict sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.
+The model predicts sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.
 
 
 ## Conclusions and future directions
