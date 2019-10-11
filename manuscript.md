@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/2f0002df8705d2884394a15e8011d0af379ed330/))
+([permalink](https://greenelab.github.io/biopriors-review/v/2b2b4b576418bcb068e40948773fb3822609d563/))
 was automatically generated
-from [greenelab/biopriors-review@2f0002d](https://github.com/greenelab/biopriors-review/tree/2f0002df8705d2884394a15e8011d0af379ed330)
+from [greenelab/biopriors-review@2b2b4b5](https://github.com/greenelab/biopriors-review/tree/2b2b4b576418bcb068e40948773fb3822609d563)
 on October 11, 2019.
 </em></small>
 
@@ -86,25 +86,23 @@ These include feature extraction or representation learning prior to modeling an
 ## Sequence models
 
 Early neural network models primarily used hand-engineered sequence features as input to a fully connected neural network [@12aqvAgz6; @17sgPdcMT].
-As convolutional neural network (CNN) approaches matured for image processing and computer vision, researchers were able to use similar ideas to leverage biological sequence proximity in modeling.
-CNNs are a neural network variant in which input data are grouped by spatial context to extract features for prediction.
-The definition of "spatial context" is specific to the input.
-For example, for images pixels that are nearby in 2D space might be grouped, or for genomic sequences base pairs that are nearby in the linear genome might be grouped.
-In this way, CNNs are able to consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
-A detailed description of how CNNs are applied to sequence data can be found in [@irSe12Sm].
+As convolutional neural network (CNN) approaches matured for image processing and computer vision, researchers leveraged biological sequence proximity similarly.
+CNNs are a neural network variant that groups input data by spatial context to extract features for prediction.
+The definition of "spatial context" is specific to the input: one might group image pixels that are nearby in 2D space, or genomic base pairs that are nearby in the linear genome.
+In this way, CNNs consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
+A detailed description of how CNNs are applied to sequences can be found in Angermueller et al. [@irSe12Sm].
 
 ### Applications in regulatory biology
 
-Many of the first applications of deep learning to biological sequence data were in regulatory biology.
-Example early applications of CNNs on sequence data include prediction of binding protein sequence specificity from DNA or RNA sequence [@jJHZHWrl], prediction of variant effects from noncoding DNA sequence [@2UI1BZuD], and prediction of chromatin accessibility from DNA sequence [@2CbHXoFn].
+Many early applications of deep learning to biological sequences were in regulatory biology.
+Early CNNs for sequence data predicted binding protein sequence specificity from DNA or RNA sequence [@jJHZHWrl], variant effects from noncoding DNA sequence [@2UI1BZuD], and chromatin accessibility from DNA sequence [@2CbHXoFn].
 
 Recent sequence models take advantage of hardware advances and methodological innovation to incorporate more sequence context and rely on fewer modeling assumptions.
-BPNet, a CNN used to predict transcription factor binding profiles from raw DNA sequences, was able to accurately map known locations of binding motifs in mouse embryonic stem cells [@miFkgNt5].
-The BPNet model considers 1000 base pairs of context around each position when predicting binding probabilities, using a technique called dilated convolutions [@18MdGd1xW] to make a large input field feasible.
-This context is particularly important because motif spacing and periodicity can influence protein function.
+BPNet, a CNN that predicts transcription factor binding profiles from DNA sequences, accurately mapped known locations of binding motifs in mouse embryonic stem cells [@miFkgNt5].
+BPNet considers 1000 base pairs of context around each position when predicting binding probabilities with a technique called dilated convolutions [@18MdGd1xW], which is particularly important because motif spacing and periodicity can influence binding.
 cDeepbind [@NyVCOHer] combines RNA sequences with information about secondary structure to predict RNA binding protein affinities.
-Its convolutional model acts on a feature vector combining sequence and structural information, simultaneously using context for both to inform predictions.
-APARENT [@17KNm3K0B] is a CNN used to predict alternative polyadenylation (APA) from a training set of over 3 million synthetic APA reporter sequences.
+Its convolutional model acts on a feature vector combining sequence and structural information, using context for both to inform predictions.
+APARENT [@17KNm3K0B] is a CNN that predicts alternative polyadenylation (APA) from a training set of over 3 million synthetic APA reporter sequences.
 These diverse applications underscore the power of modern deep learning models to synthesize large sequence datasets.
 
 Models that consider sequence context have also been applied to epigenetic data.
@@ -112,17 +110,17 @@ DeepSignal [@phJJvCFv] is a CNN that uses contextual electrical signals from Oxf
 MRCNN [@NzYX9e9i] uses sequences of length 400, centered at CpG sites, to predict 5mC methylation status.
 Deep learning models have also been used to predict gene expression from histone modifications [@126y5dSh0; @rxMdCSQm].
 Here, a neural network model consisting of long short-term memory (LSTM) units was used to encode the long-distance interactions of histone marks in both the 3' and 5' genomic directions.
-In each of these cases, proximity in the linear genome proved useful for modeling the complex interactions between DNA sequence and epigenome.
+In each of these cases, proximity in the linear genome helped model the complex interactions between DNA sequence and epigenome.
 
 ### Applications in variant calling and mutation detection
 
-Identification of genetic variants can also benefit from models that take into account sequence context.
+Identification of genetic variants also benefits from models that include sequence context.
 DeepVariant [@YqAWSEkm] applies a CNN to images of sequence read pileups, using read data around each candidate variant to accurately distinguish true variants from sequencing errors.
 <!-- could mention GATK4 here which uses a CNN, although nothing has been published? -->
 <!-- https://gatkforums.broadinstitute.org/gatk/discussion/10996/deep-learning-in-gatk4 -->
 CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequencing data [@UsuUETZK], using a different sequence encoding that results in better performance than DeepVariant on single molecule data.
 However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling [@KDXezqfK; @1ENge146H].
-Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNN models [@t17iSYjA].
+Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNNs [@t17iSYjA].
 
 
 
