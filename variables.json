@@ -1,5 +1,5 @@
 {
-  "date": "October 11, 2019",
+  "date": "October 13, 2019",
   "authors": [
     {
       "github": "jjc2718",
@@ -27,14 +27,9 @@
       "twitter": "greenescientist",
       "affiliations": [
         "Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA",
-        "Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA"
+        "Childhood Cancer Data Lab, Alex's Lemonade Stand Foundation, Philadelphia, PA"
       ],
-      "funders": [
-        "The Gordon and Betty Moore Foundation (GBMF 4552)",
-        "National Human Genome Research Institute (R01 HG010067)",
-        "National Cancer Institute (R01 CA237170)",
-        "Alex''s Lemonade Stand Foundation (CCDL)"
-      ],
+      "funders": "The Gordon and Betty Moore Foundation (GBMF 4552), National Human Genome Research Institute (R01 HG010067), National Cancer Institute (R01 CA237170), Alex's Lemonade Stand Foundation (CCDL)",
       "affiliation_numbers": [
         2,
         3
@@ -51,7 +46,7 @@
       "affiliation_number": 2
     },
     {
-      "affiliation": "Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA",
+      "affiliation": "Childhood Cancer Data Lab, Alex's Lemonade Stand Foundation, Philadelphia, PA",
       "affiliation_number": 3
     }
   ],
@@ -59,7 +54,7 @@
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "a48dd1c80d3d36feebb8d60a55ff4b54173d5efa"
+    "commit": "83dc5820cc4166d6a0c0d7b4dfeff27a1e626286"
   },
   "manuscript_stats": {
     "reference_counts": {
@@ -68,6 +63,6 @@
       "url": 1,
       "total": 59
     },
-    "word_count": 3290
+    "word_count": 3322
   }
 }

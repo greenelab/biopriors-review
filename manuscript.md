@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-10-11'
+date-meta: '2019-10-13'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/a48dd1c80d3d36feebb8d60a55ff4b54173d5efa/))
+([permalink](https://greenelab.github.io/biopriors-review/v/83dc5820cc4166d6a0c0d7b4dfeff27a1e626286/))
 was automatically generated
-from [greenelab/biopriors-review@a48dd1c](https://github.com/greenelab/biopriors-review/tree/a48dd1c80d3d36feebb8d60a55ff4b54173d5efa)
-on October 11, 2019.
+from [greenelab/biopriors-review@83dc582](https://github.com/greenelab/biopriors-review/tree/83dc5820cc4166d6a0c0d7b4dfeff27a1e626286)
+on October 13, 2019.
 </em></small>
 
 ## Authors
@@ -50,8 +50,8 @@ on October 11, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [greenescientist](https://twitter.com/greenescientist)<br>
   <small>
-     Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Childhood Cancer Data Lab, Alex''s Lemonade Stand Foundation. Philadelphia PA
-     · Funded by ['The Gordon and Betty Moore Foundation (GBMF 4552)', 'National Human Genome Research Institute (R01 HG010067)', 'National Cancer Institute (R01 CA237170)', "Alex''s Lemonade Stand Foundation (CCDL)"]
+     Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Childhood Cancer Data Lab, Alex's Lemonade Stand Foundation, Philadelphia, PA
+     · Funded by The Gordon and Betty Moore Foundation (GBMF 4552), National Human Genome Research Institute (R01 HG010067), National Cancer Institute (R01 CA237170), Alex's Lemonade Stand Foundation (CCDL)
   </small>
 
 
@@ -92,6 +92,7 @@ These include feature extraction or representation learning prior to modeling an
 Early neural network models primarily used hand-engineered sequence features as input to a fully connected neural network [@12aqvAgz6; @17sgPdcMT].
 As convolutional neural network (CNN) approaches matured for image processing and computer vision, researchers leveraged biological sequence proximity similarly.
 CNNs are a neural network variant that groups input data by spatial context to extract features for prediction.
+
 The definition of "spatial context" is specific to the input: one might group image pixels that are nearby in 2D space, or genomic base pairs that are nearby in the linear genome.
 In this way, CNNs consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
 A detailed description of how CNNs are applied to sequences can be found in Angermueller et al. [@irSe12Sm].
@@ -204,14 +205,20 @@ As the quantity and richness of biomedical data has increased, sequence reposito
 This raises opportunities to integrate these resources into the structure of machine learning models.
 Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
 Improved benchmarking should lead to a better understanding of which dataset characteristics align with which approaches.
+
 Many methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of these models and algorithms would facilitate further use and development.
 In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
 
 
 
+## Acknowledgements
+
+The authors would like to thank Daniel Himmelstein for a critical reading of the manuscript and helpful discussion.
+
+
 ## Reference Annotations
 
-Annotation for BPNet [@miFkgNt5]:
+[**] Annotation for BPNet [@miFkgNt5]:
 
 This paper describes BPNet, a neural network for predicting transcription
 factor (TF) binding profiles from raw DNA sequence. The model is able to
@@ -219,21 +226,21 @@ accurately infer the spacing and periodicity of pluripotency-related TFs in
 mouse embryonic stem cells, leading to an improved understanding of the motif
 syntax of combinatorial TF binding in cell development.
 
-Annotation for cDeepbind [@NyVCOHer]:
+[*] Annotation for cDeepbind [@NyVCOHer]:
 
 cDeepbind is a neural network model for predicting RNA binding protein (RBP)
 specificity from RNA sequence and secondary structure information. The authors
 show that this combined approach provides an improvement over previous models
 that use only sequence information.
 
-Annotation for DeepDiff [@rxMdCSQm]:
+[*] Annotation for DeepDiff [@rxMdCSQm]:
 
 DeepDiff uses a long short-term memory neural network to predict differential
 gene expression from the spatial structure of histone modification
 measurements. The network has a multi-task objective, enabling gene expression
 predictions to be made simultaneously in multiple cell types.
 
-Annotation for DeepVariant [@YqAWSEkm]:
+[**] Annotation for DeepVariant [@YqAWSEkm]:
 
 This paper describes DeepVariant, a neural network model for distinguishing
 true genetic variants from errors in next-generation DNA sequencing data. The
@@ -242,7 +249,7 @@ images of read pileups around candidate variants, using information about the
 sequence around the candidate variant site to make predictions about the true
 genotype at the site.
 
-Annotation for PLIER [@Ki2ij7zE]:
+[**] Annotation for PLIER [@Ki2ij7zE]:
 
 This paper describes a "pathway-level information extractor" (PLIER), a method
 for reducing the dimension of gene expression data in a manner that aligns with
@@ -250,7 +257,7 @@ known biological pathways or informative gene sets. The method can also reduce
 the effects of technical noise. The authors show that PLIER can be used to
 improve cell type inference and as a component in eQTL studies.
 
-Annotation for netNMF-sc [@17fvHtbrH]:
+[**] Annotation for netNMF-sc [@17fvHtbrH]:
 
 netNMF-sc is a dimension reduction method that uses network information to
 "smooth" a matrix factorization of single-cell gene expression data, such that
@@ -259,7 +266,7 @@ representation. Inclusion of network information is particularly useful when
 analyzing single-cell expression data, due to its ability to mitigate "dropouts"
 and other sources of variability that are present at the single cell level.
 
-Annotation for Attribution Priors [@LLInUBEI]:
+[*] Annotation for Attribution Priors [@LLInUBEI]:
 
 This paper describes "model attribution priors", or a method for constraining
 a machine learning model's behavior during training with prior beliefs or
@@ -267,7 +274,7 @@ expectations about the data or problem structure. As an example of this concept,
 the authors show that incorporation of network data improves the performance of
 a model for drug response prediction in acute myeloid leukemia.
 
-Annotation for PIMKL [@12cJO5Pse]:
+[*] Annotation for PIMKL [@12cJO5Pse]:
 
 In this paper, the authors present an algorithm for combining gene expression
 and copy number data with prior information, such as gene networks and pathways
@@ -275,7 +282,7 @@ or gene set annotations, to predict survival in breast cancer. The weights
 learned by the model are also interpretable, providing a putative set of
 explanatory features for the prediction task.
 
-Annotation for creNET [@g8OoyIPj]:
+[**] Annotation for creNET [@g8OoyIPj]:
 
 This work describes creNET, a regression model for gene expression data that
 uses information about gene regulation to differentially weight or penalize
@@ -283,7 +290,7 @@ gene sets that are co-regulated. The authors show that the model can be used to
 predict phenotype from gene expression data in clinical trials. The model also
 provides interpretable weights for each gene regulator.
 
-Annotation for DCell [@qQP20moO]:
+[**] Annotation for DCell [@qQP20moO]:
 
 This paper presents DCell, a neural network model for prediction of yeast
 growth phenotype from gene deletions. The structure of the neural network is
@@ -292,7 +299,7 @@ predictions for a given input to be interpreted based on the subsystems of GO
 that they activate. Thus, the neural network can be seen as connecting genotype
 to phenotype.
 
-Annotation for DeepGO [@TIQTmEOG]:
+[*] Annotation for DeepGO [@TIQTmEOG]:
 
 Here, the authors describe a method for predicting protein function from amino
 acid sequence, incorporating the dependency structure of the Gene Ontology (GO)
@@ -300,7 +307,7 @@ into their neural network used for prediction. Using the GO information
 provides a performance improvement over similar models that do not incorporate
 this information.
 
-Annotation for NetBITE [@kKiwlzZq]:
+[**] Annotation for NetBITE [@kKiwlzZq]:
 
 This paper describes a method for using prior knowledge about drug targets to
 inform the structure of a tree ensemble model, used for predicting IC50 drug
