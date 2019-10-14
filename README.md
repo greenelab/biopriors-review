@@ -1,17 +1,18 @@
-# Automated scholarly manuscripts on GitHub
-
-<!-- usage note: edit the H1 title above to personalize the manuscript -->
+# BioPriors Review Paper
 
 [![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://greenelab.github.io/biopriors-review/)
 [![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://greenelab.github.io/biopriors-review/manuscript.pdf)
 [![Build Status](https://travis-ci.com/greenelab/biopriors-review.svg?branch=master)](https://travis-ci.com/greenelab/biopriors-review)
 
-## Manuscript description
+The working title for this manuscript is **Incorporating biological structure into machine learning models in biomedicine**.
 
-<!-- usage note: edit this section. -->
+## Abstract
 
-This repository is a template manuscript (a.k.a. rootstock).
-Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.md)) and replace this paragraph with a description of their manuscript.
+In biomedical applications of machine learning, relevant information often has a rich structure that is not easily encoded as real-valued predictors.
+Examples of such data include DNA or RNA sequences, gene sets or pathways, gene interaction or coexpression networks, ontologies, and phylogenetic trees.
+We highlight recent examples of machine learning models that use structure to constrain model architecture or incorporate structured data into model training.
+For machine learning in biomedicine, where sample size is limited and model interpretability is critical, incorporating prior knowledge in the form of structured data can be particularly useful.
+The area of research would benefit from performant open source implementations and independent benchmarking efforts.
 
 ## Manubot
 
