@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-10-13'
+date-meta: '2019-10-14'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/83dc5820cc4166d6a0c0d7b4dfeff27a1e626286/))
+([permalink](https://greenelab.github.io/biopriors-review/v/e1afb165480f765a65c33354a71aca92cd5bdc10/))
 was automatically generated
-from [greenelab/biopriors-review@83dc582](https://github.com/greenelab/biopriors-review/tree/83dc5820cc4166d6a0c0d7b4dfeff27a1e626286)
-on October 13, 2019.
+from [greenelab/biopriors-review@e1afb16](https://github.com/greenelab/biopriors-review/tree/e1afb165480f765a65c33354a71aca92cd5bdc10)
+on October 14, 2019.
 </em></small>
 
 ## Authors
@@ -65,6 +65,11 @@ The area of research would benefit from performant open source implementations a
 
 
 
+## Graphical abstract
+
+![Schematic showing the main categories of models incorporating structured biological data covered in this review. The first panel shows an example of a model operating on raw sequence data, the second panel shows a model in which dimension reduction is constrained by the connections in a gene network, and the third panel shows a neural network with structure constrained by a phylogeny or ontology.](images/all_models.svg){.white}
+
+
 ## Introduction
 
 It can be challenging to distinguish signal from noise in biomedical datasets, and machine learning methods are particularly hampered when the amount of available training data is small.
@@ -89,13 +94,15 @@ These include feature extraction or representation learning prior to modeling an
 
 ## Sequence models
 
-Early neural network models primarily used hand-engineered sequence features as input to a fully connected neural network [@12aqvAgz6; @17sgPdcMT].
+Early neural network models primarily used hand-engineered sequence features as input to a fully connected neural network [@12aqvAgz6; @17sgPdcMT] (Figure {@fig:sequence_features}).
 As convolutional neural network (CNN) approaches matured for image processing and computer vision, researchers leveraged biological sequence proximity similarly.
 CNNs are a neural network variant that groups input data by spatial context to extract features for prediction.
 
 The definition of "spatial context" is specific to the input: one might group image pixels that are nearby in 2D space, or genomic base pairs that are nearby in the linear genome.
 In this way, CNNs consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
 A detailed description of how CNNs are applied to sequences can be found in Angermueller et al. [@irSe12Sm].
+
+![Contrasting approaches to extracting features from DNA or RNA sequence data. Early models defined features of interest by hand based on prior knowledge about the prediction or clustering problem of interest, such as GC content or sequence melting point. Convolutional models use sequence convolutions to derive features directly from sequence proximity, without requiring features of interest to be identified before the model is trained.](images/sequence_features.svg){#fig:sequence_features .white}
 
 ### Applications in regulatory biology
 
@@ -133,8 +140,10 @@ Detection of somatic mutations is a distinct but related challenge to detection 
 
 Rather than operating on sequences, many machine learning models in biomedicine operate on inputs that lack intrinsic order.
 Models may make use of gene expression data matrices from RNA sequencing or microarray experiments in which rows represent samples and columns represent genes.
-To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data.
+To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data (Figure {@fig:network_models}).
 This is comparable to the manner in which sequence context pushes models to consider nearby base pairs similarly.
+
+![The relationships between genes provide structure that can be incorporated into machine learning models. One common approach is to use a network or collection of gene sets to embed the data in a lower-dimensional space, in which genes that are in the same gene sets or that are well-connected in the network have a similar representation in the lower-dimensional space. The embedded data can then be used for classification or clustering tasks.](images/network_models.svg){#fig:network_models .white}
 
 ### Applications in transcriptomics
 
@@ -175,7 +184,7 @@ As genetic datasets grow, we expect that researchers will continue to develop mo
 
 ## Other models incorporating biological structure
 
-Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes relationships between entities.
+Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes relationships between entities (see Figure {@fig:ontology_models} for a visual example).
 The Gene Ontology (GO) [@eH3LaU5K] describes the relationships between cellular subsystems and other attributes describing proteins or genes.
 DCell [@qQP20moO] uses GO to inform the connectivity of a neural network predicting the effects of gene deletions on yeast growth.
 DCell performs comparably to an unconstrained neural network for this task.
@@ -183,6 +192,8 @@ Additionally, it is easier to interpret: a cellular subsystem with high neuron o
 DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amino acid sequence with a neural network constrained by the dependencies of GO.
 However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins.
 This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.
+
+![Directed graph-structured data, such as an ontology or phylogenetic tree can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the red-shaded nodes have high neuron outputs for a given sample, then the subsystem encoded in the red-shaded part of the tree graph is most likely important in making predictions for that sample.](images/ontology_models.svg){#fig:ontology_models .white}
 
 Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose.
 glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data.

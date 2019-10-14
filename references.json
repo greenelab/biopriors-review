@@ -2868,7 +2868,7 @@
     "source": "www.aclweb.org",
     "event": "Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies",
     "abstract": "Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, Christopher Potts. Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies. 2011.",
-    "URL": "https://www.aclweb.org/anthology/P11-1015/",
+    "URL": "https://www.aclweb.org/anthology/P11-1015",
     "language": "en-us",
     "author": [
       {
@@ -2909,7 +2909,7 @@
         [
           "2019",
           10,
-          13
+          14
         ]
       ]
     },
