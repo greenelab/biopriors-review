@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/e1afb165480f765a65c33354a71aca92cd5bdc10/))
+([permalink](https://greenelab.github.io/biopriors-review/v/e869a1f92094aaaf4f44d7da26126c0b96852752/))
 was automatically generated
-from [greenelab/biopriors-review@e1afb16](https://github.com/greenelab/biopriors-review/tree/e1afb165480f765a65c33354a71aca92cd5bdc10)
+from [greenelab/biopriors-review@e869a1f](https://github.com/greenelab/biopriors-review/tree/e869a1f92094aaaf4f44d7da26126c0b96852752)
 on October 14, 2019.
 </em></small>
 
