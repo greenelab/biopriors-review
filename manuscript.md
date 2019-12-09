@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-11-04'
+date-meta: '2019-12-09'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/287740d11269eefac7d4ebc082d1157d95475e99/))
+([permalink](https://greenelab.github.io/biopriors-review/v/760e3865d3689a707b727f65ee65831a383d131d/))
 was automatically generated
-from [greenelab/biopriors-review@287740d](https://github.com/greenelab/biopriors-review/tree/287740d11269eefac7d4ebc082d1157d95475e99)
-on November 4, 2019.
+from [greenelab/biopriors-review@760e386](https://github.com/greenelab/biopriors-review/tree/760e3865d3689a707b727f65ee65831a383d131d)
+on December 9, 2019.
 </em></small>
 
 ## Authors
@@ -102,7 +102,7 @@ The definition of "spatial context" is specific to the input: one might group im
 In this way, CNNs consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
 A detailed description of how CNNs are applied to sequences can be found in Angermueller et al. [@irSe12Sm].
 
-![Contrasting approaches to extracting features from DNA or RNA sequence data. Early models defined features of interest by hand based on prior knowledge about the prediction or clustering problem of interest, such as GC content or sequence melting point. Convolutional models use sequence convolutions to derive features directly from sequence proximity, without requiring features of interest to be identified before the model is trained.](images/sequence_features.svg){#fig:sequence_features .white}
+![Contrasting approaches to extracting features from DNA or RNA sequence data. Early models defined features of interest by hand based on prior knowledge about the prediction or clustering problem of interest, such as GC content or sequence melting point, as depicted in the left branch in the figure. Convolutional models, depicted in the right branch, use sequence convolutions to derive features directly from sequence proximity, without requiring quantities of interest to be identified before the model is trained. Red or blue emphasis denotes inputs to the predictive model (either the hand-defined numeric features on the left or the outputs of convolutional filters on the right).](images/sequence_features_revised.svg){#fig:sequence_features .white}
 
 ### Applications in regulatory biology
 
@@ -158,7 +158,7 @@ This approach aids interpretation, as pathway nodes in the network with high wei
 Gene-level relationships can also be represented with networks.
 Network nodes typically represent genes and real-valued edges may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
 netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data.
-The coexpression network improves performance for identifying cell types and of cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
+The coexpression network improves performance for identifying cell types and cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
 Combining gene expression data with a network-derived smoothing term also improved prediction of patient drug response in acute myeloid leukemia [@LLInUBEI] and detection of mutated cancer genes [@1BbuXJuIl].
 PIMKL [@12cJO5Pse] combines network and pathway data to predict disease-free survival from breast cancer cohorts.
 This method takes as input both RNA-seq gene expression data and copy number alteration data, but can also be applied to gene expression data alone.
