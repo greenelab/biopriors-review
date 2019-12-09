@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/greenelab/biopriors-review/tree/gh-pages) branch hosts the contents of this directory at https://greenelab.github.io/biopriors-review/.
-The permalink for this webpage version is https://greenelab.github.io/biopriors-review/v/287740d11269eefac7d4ebc082d1157d95475e99/.
+The permalink for this webpage version is https://greenelab.github.io/biopriors-review/v/760e3865d3689a707b727f65ee65831a383d131d/.
 To redirect to the permalink for the latest manuscript version at anytime, use the link https://greenelab.github.io/biopriors-review/v/freeze/.
 
 ## Files
@@ -36,4 +36,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`287740d11269eefac7d4ebc082d1157d95475e99`](https://github.com/greenelab/biopriors-review/commit/287740d11269eefac7d4ebc082d1157d95475e99).
+[`760e3865d3689a707b727f65ee65831a383d131d`](https://github.com/greenelab/biopriors-review/commit/760e3865d3689a707b727f65ee65831a383d131d).
