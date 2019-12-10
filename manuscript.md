@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-12-09'
+date-meta: '2019-12-10'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/760e3865d3689a707b727f65ee65831a383d131d/))
+([permalink](https://greenelab.github.io/biopriors-review/v/aef398f163263ff7b1b9ea47ef9a501fe20ea6a9/))
 was automatically generated
-from [greenelab/biopriors-review@760e386](https://github.com/greenelab/biopriors-review/tree/760e3865d3689a707b727f65ee65831a383d131d)
-on December 9, 2019.
+from [greenelab/biopriors-review@aef398f](https://github.com/greenelab/biopriors-review/tree/aef398f163263ff7b1b9ea47ef9a501fe20ea6a9)
+on December 10, 2019.
 </em></small>
 
 ## Authors
@@ -143,7 +143,7 @@ Models may make use of gene expression data matrices from RNA sequencing or micr
 To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data (Figure {@fig:network_models}).
 This is comparable to the manner in which sequence context pushes models to consider nearby base pairs similarly.
 
-![The relationships between genes provide structure that can be incorporated into machine learning models. One common approach is to use a network or collection of gene sets to embed the data in a lower-dimensional space, in which genes that are in the same gene sets or that are well-connected in the network have a similar representation in the lower-dimensional space. The embedded data can then be used for classification or clustering tasks.](images/network_models.svg){#fig:network_models .white}
+![The relationships between genes provide structure that can be incorporated into machine learning models. One common approach is to use a network or collection of gene sets to embed the data in a lower-dimensional space, in which genes that are in the same gene sets or that are well-connected in the network have a similar representation in the lower-dimensional space. The embedded data can then be used for classification or clustering tasks. The "x" values in the data table represent gene expression measurements.](images/network_models_revised.svg){#fig:network_models .white}
 
 ### Applications in transcriptomics
 

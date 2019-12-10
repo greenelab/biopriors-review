@@ -1,5 +1,5 @@
 {
-  "date": "December 9, 2019",
+  "date": "December 10, 2019",
   "authors": [
     {
       "github": "jjc2718",
@@ -54,7 +54,7 @@
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "760e3865d3689a707b727f65ee65831a383d131d"
+    "commit": "aef398f163263ff7b1b9ea47ef9a501fe20ea6a9"
   },
   "manuscript_stats": {
     "reference_counts": {
@@ -63,6 +63,6 @@
       "url": 1,
       "total": 59
     },
-    "word_count": 3663
+    "word_count": 3674
   }
 }
