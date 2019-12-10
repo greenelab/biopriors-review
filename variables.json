@@ -54,7 +54,7 @@
     "repo_slug": "greenelab/biopriors-review",
     "repo_owner": "greenelab",
     "repo_name": "biopriors-review",
-    "commit": "b40606a323ed9e9ede40c79947895186f9717c14"
+    "commit": "7581d058283f8c0be83baa6917168d2fcf657c20"
   },
   "manuscript_stats": {
     "reference_counts": {
@@ -63,6 +63,6 @@
       "url": 1,
       "total": 59
     },
-    "word_count": 3689
+    "word_count": 3699
   }
 }

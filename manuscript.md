@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/b40606a323ed9e9ede40c79947895186f9717c14/))
+([permalink](https://greenelab.github.io/biopriors-review/v/7581d058283f8c0be83baa6917168d2fcf657c20/))
 was automatically generated
-from [greenelab/biopriors-review@b40606a](https://github.com/greenelab/biopriors-review/tree/b40606a323ed9e9ede40c79947895186f9717c14)
+from [greenelab/biopriors-review@7581d05](https://github.com/greenelab/biopriors-review/tree/7581d058283f8c0be83baa6917168d2fcf657c20)
 on December 10, 2019.
 </em></small>
 
@@ -67,7 +67,7 @@ The area of research would benefit from performant open source implementations a
 
 ## Graphical abstract
 
-![Schematic showing the main categories of models incorporating structured biological data covered in this review. The first panel shows an example of a model operating on raw sequence data, the second panel shows a model in which dimension reduction is constrained by the connections in a gene network, and the third panel shows a neural network with structure constrained by a phylogeny or ontology.](images/all_models.svg){.white}
+![Schematic showing the main categories of models incorporating structured biological data covered in this review. The first panel shows an example of a model operating on sequence data, the second panel shows a model in which dimension reduction is influenced by the connections in a gene network, and the third panel shows a neural network with structure constrained by a phylogeny or ontology. The "x" values in the data tables represent gene expression measurements.](images/all_models_revised.svg){.white}
 
 
 ## Introduction
