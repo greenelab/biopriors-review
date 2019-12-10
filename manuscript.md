@@ -20,9 +20,9 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/aef398f163263ff7b1b9ea47ef9a501fe20ea6a9/))
+([permalink](https://greenelab.github.io/biopriors-review/v/b40606a323ed9e9ede40c79947895186f9717c14/))
 was automatically generated
-from [greenelab/biopriors-review@aef398f](https://github.com/greenelab/biopriors-review/tree/aef398f163263ff7b1b9ea47ef9a501fe20ea6a9)
+from [greenelab/biopriors-review@b40606a](https://github.com/greenelab/biopriors-review/tree/b40606a323ed9e9ede40c79947895186f9717c14)
 on December 10, 2019.
 </em></small>
 
@@ -193,7 +193,7 @@ DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amin
 However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins.
 This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.
 
-![Directed graph-structured data, such as an ontology or phylogenetic tree can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the red-shaded nodes have high neuron outputs for a given sample, then the subsystem encoded in the red-shaded part of the tree graph is most likely important in making predictions for that sample.](images/ontology_models.svg){#fig:ontology_models .white}
+![Directed graph-structured data, such as an ontology or phylogenetic tree, can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the nodes in the right tree branch have high neuron outputs for a given sample, then the subsystem encoded in the right branch of the tree graph is most likely important in making predictions for that sample. The "x" values in the data table represent gene expression measurements.](images/ontology_models_revised.svg){#fig:ontology_models .white}
 
 Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose.
 glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data.
