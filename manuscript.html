@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jake Crawford" />
   <meta name="author" content="Casey S. Greene" />
-  <meta name="dcterms.date" content="2019-12-10" />
+  <meta name="dcterms.date" content="2019-12-16" />
   <meta name="keywords" content="machine learning, deep learning, gene networks, pathway databases, literature review" />
   <title>Incorporating biological structure into machine learning models in biomedicine</title>
   <style>
@@ -23,7 +23,7 @@
 <header id="title-block-header">
 <h1 class="title">Incorporating biological structure into machine learning models in biomedicine</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/7581d058283f8c0be83baa6917168d2fcf657c20/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/7581d058283f8c0be83baa6917168d2fcf657c20">greenelab/biopriors-review@7581d05</a> on December 10, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://greenelab.github.io/biopriors-review/v/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5/">permalink</a>) was automatically generated from <a href="https://github.com/greenelab/biopriors-review/tree/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5">greenelab/biopriors-review@6f38aa6</a> on December 16, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>Jake Crawford</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/0000-0001-6207-0782">0000-0001-6207-0782</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/jjc2718">jjc2718</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/jjc2718">jjc2718</a><br> <small> Graduate Group in Genomics and Computational Biology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA; Department of Systems Pharmacology and Translational Therapeutics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA · Funded by National Human Genome Research Institute (R01 HG010067) </small></p></li>
@@ -51,7 +51,7 @@
 <p>Recent sequence models take advantage of hardware advances and methodological innovation to incorporate more sequence context and rely on fewer modeling assumptions. BPNet, a CNN that predicts transcription factor binding profiles from DNA sequences, accurately mapped known locations of binding motifs in mouse embryonic stem cells <span class="citation" data-cites="miFkgNt5">[<a href="#ref-miFkgNt5" role="doc-biblioref">16</a>]</span>. BPNet considers 1000 base pairs of context around each position when predicting binding probabilities with a technique called dilated convolutions <span class="citation" data-cites="18MdGd1xW">[<a href="#ref-18MdGd1xW" role="doc-biblioref">17</a>]</span>, which is particularly important because motif spacing and periodicity can influence binding. cDeepbind <span class="citation" data-cites="NyVCOHer">[<a href="#ref-NyVCOHer" role="doc-biblioref">18</a>]</span> combines RNA sequences with information about secondary structure to predict RNA binding protein affinities. Its convolutional model acts on a feature vector combining sequence and structural information, using context for both to inform predictions. APARENT <span class="citation" data-cites="17KNm3K0B">[<a href="#ref-17KNm3K0B" role="doc-biblioref">19</a>]</span> is a CNN that predicts alternative polyadenylation (APA) from a training set of over 3 million synthetic APA reporter sequences. These diverse applications underscore the power of modern deep learning models to synthesize large sequence datasets.</p>
 <p>Models that consider sequence context have also been applied to epigenetic data. DeepSignal <span class="citation" data-cites="phJJvCFv">[<a href="#ref-phJJvCFv" role="doc-biblioref">20</a>]</span> is a CNN that uses contextual electrical signals from Oxford Nanopore single-molecule sequencing data to predict 5mC or 6mA DNA methylation status. MRCNN <span class="citation" data-cites="NzYX9e9i">[<a href="#ref-NzYX9e9i" role="doc-biblioref">21</a>]</span> uses sequences of length 400, centered at CpG sites, to predict 5mC methylation status. Deep learning models have also been used to predict gene expression from histone modifications <span class="citation" data-cites="126y5dSh0 rxMdCSQm">[<a href="#ref-126y5dSh0" role="doc-biblioref">22</a>,<a href="#ref-rxMdCSQm" role="doc-biblioref">23</a>]</span>. Here, a neural network model consisting of long short-term memory (LSTM) units was used to encode the long-distance interactions of histone marks in both the 3’ and 5’ genomic directions. In each of these cases, proximity in the linear genome helped model the complex interactions between DNA sequence and epigenome.</p>
 <h3 id="applications-in-variant-calling-and-mutation-detection">Applications in variant calling and mutation detection</h3>
-<p>Identification of genetic variants also benefits from models that include sequence context. DeepVariant <span class="citation" data-cites="YqAWSEkm">[<a href="#ref-YqAWSEkm" role="doc-biblioref">24</a>]</span> applies a CNN to images of sequence read pileups, using read data around each candidate variant to accurately distinguish true variants from sequencing errors. <!-- could mention GATK4 here which uses a CNN, although nothing has been published? --> <!-- https://gatkforums.broadinstitute.org/gatk/discussion/10996/deep-learning-in-gatk4 --> CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequencing data <span class="citation" data-cites="UsuUETZK">[<a href="#ref-UsuUETZK" role="doc-biblioref">25</a>]</span>, using a different sequence encoding that results in better performance than DeepVariant on single molecule data. However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling <span class="citation" data-cites="KDXezqfK 1ENge146H">[<a href="#ref-KDXezqfK" role="doc-biblioref">26</a>,<a href="#ref-1ENge146H" role="doc-biblioref">27</a>]</span>. Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNNs <span class="citation" data-cites="t17iSYjA">[<a href="#ref-t17iSYjA" role="doc-biblioref">28</a>]</span>.</p>
+<p>Identification of genetic variants also benefits from models that include sequence context. DeepVariant <span class="citation" data-cites="YqAWSEkm">[<a href="#ref-YqAWSEkm" role="doc-biblioref">24</a>]</span> applies a CNN to images of sequence read pileups, using read data around each candidate variant to accurately distinguish true variants from sequencing errors. CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequencing data <span class="citation" data-cites="UsuUETZK">[<a href="#ref-UsuUETZK" role="doc-biblioref">25</a>]</span>, using a different sequence encoding that results in better performance than DeepVariant on single molecule data. However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling <span class="citation" data-cites="KDXezqfK 1ENge146H">[<a href="#ref-KDXezqfK" role="doc-biblioref">26</a>,<a href="#ref-1ENge146H" role="doc-biblioref">27</a>]</span>. Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNNs <span class="citation" data-cites="t17iSYjA">[<a href="#ref-t17iSYjA" role="doc-biblioref">28</a>]</span>.</p>
 <h2 id="network--and-pathway-based-models">Network- and pathway-based models</h2>
 <p>Rather than operating on sequences, many machine learning models in biomedicine operate on inputs that lack intrinsic order. Models may make use of gene expression data matrices from RNA sequencing or microarray experiments in which rows represent samples and columns represent genes. To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data (Figure <a href="#fig:network_models">2</a>). This is comparable to the manner in which sequence context pushes models to consider nearby base pairs similarly.</p>
 <figure>
@@ -59,19 +59,19 @@
 </figure>
 <h3 id="applications-in-transcriptomics">Applications in transcriptomics</h3>
 <p>Models built from gene expression data can benefit from incorporating gene-level relationships. One form that this knowledge commonly takes is a database of gene sets, which may represent biological pathways or gene signatures for a biological state of interest. PLIER <span class="citation" data-cites="Ki2ij7zE">[<a href="#ref-Ki2ij7zE" role="doc-biblioref">29</a>]</span> uses gene set information from MSigDB <span class="citation" data-cites="15p5LWIVP">[<a href="#ref-15p5LWIVP" role="doc-biblioref">30</a>]</span> and cell type markers to extract a representation of gene expression data that corresponds to biological processes and reduces technical noise. The resulting gene set-aligned representation accurately decomposed cell type mixtures. MultiPLIER <span class="citation" data-cites="14rnBunuZ">[<a href="#ref-14rnBunuZ" role="doc-biblioref">31</a>]</span> applied PLIER to the recount2 gene expression compendium <span class="citation" data-cites="6SPTvFXq">[<a href="#ref-6SPTvFXq" role="doc-biblioref">32</a>]</span> to develop a model that shares information across multiple tissues and diseases, including rare diseases with limited sample sizes. PASNet <span class="citation" data-cites="1Bb8CyeTY">[<a href="#ref-1Bb8CyeTY" role="doc-biblioref">33</a>]</span> uses MSigDB to inform the structure of a neural network for predicting patient outcomes in glioblastoma multiforme (GBM) from gene expression data. This approach aids interpretation, as pathway nodes in the network with high weights can be inferred to correspond to certain pathways in GBM outcome prediction.</p>
-<p>Gene-level relationships can also be represented with networks. Network nodes typically represent genes and real-valued edges may represent interactions or correlations between genes, often in a tissue or cell type context of interest. netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">34</a>]</span> incorporates coexpression networks <span class="citation" data-cites="3VYPTgXw">[<a href="#ref-3VYPTgXw" role="doc-biblioref">35</a>]</span> as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data. The coexpression network improves performance for identifying cell types and cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods. Combining gene expression data with a network-derived smoothing term also improved prediction of patient drug response in acute myeloid leukemia <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">36</a>]</span> and detection of mutated cancer genes <span class="citation" data-cites="1BbuXJuIl">[<a href="#ref-1BbuXJuIl" role="doc-biblioref">37</a>]</span>. PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">38</a>]</span> combines network and pathway data to predict disease-free survival from breast cancer cohorts. This method takes as input both RNA-seq gene expression data and copy number alteration data, but can also be applied to gene expression data alone.</p>
-<p>Gene regulatory networks can also augment models for gene expression data. These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules. creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">39</a>]</span> integrates a gene regulatory network, derived from STRING <span class="citation" data-cites="q9Fhy8eq">[<a href="#ref-q9Fhy8eq" role="doc-biblioref">40</a>]</span>, with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection. The gene regulatory information allows the model to identify the biological regulators associated with the response, potentially giving mechanistic insight into differential clinical trial response. GRRANN <span class="citation" data-cites="19wuAzYvo">[<a href="#ref-19wuAzYvo" role="doc-biblioref">41</a>]</span>, which was applied to the same data as creNET, uses a gene regulatory network to inform the structure of a neural network. Several other methods <span class="citation" data-cites="owp8L957 e4tSAJkK">[<a href="#ref-owp8L957" role="doc-biblioref">42</a>,<a href="#ref-e4tSAJkK" role="doc-biblioref">43</a>]</span> have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit and facilitating interpretation.</p>
+<p>Gene-level relationships can also be represented with networks. Network nodes typically represent genes and real-valued edges may represent interactions or correlations between genes, often in a tissue or cell type context of interest. Network-based stratification <span class="citation" data-cites="c2Oc0eIx">[<a href="#ref-c2Oc0eIx" role="doc-biblioref">34</a>]</span> is an early example of a method for utilizing gene interaction network data in this manner, applied to improve subtyping across several cancer types. More recently, netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">35</a>]</span> incorporates coexpression networks <span class="citation" data-cites="3VYPTgXw">[<a href="#ref-3VYPTgXw" role="doc-biblioref">36</a>]</span> as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data. The coexpression network improves performance for identifying cell types and cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods. Combining gene expression data with a network-derived smoothing term also improved prediction of patient drug response in acute myeloid leukemia <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">37</a>]</span> and detection of mutated cancer genes <span class="citation" data-cites="1BbuXJuIl">[<a href="#ref-1BbuXJuIl" role="doc-biblioref">38</a>]</span>. PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">39</a>]</span> combines network and pathway data to predict disease-free survival from breast cancer cohorts. This method takes as input both RNA-seq gene expression data and copy number alteration data, but can also be applied to gene expression data alone.</p>
+<p>Gene regulatory networks can also augment models for gene expression data. These networks describe how the expression of genes is modulated by biological regulators such as transcription factors, microRNAs, or small molecules. creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">40</a>]</span> integrates a gene regulatory network, derived from STRING <span class="citation" data-cites="q9Fhy8eq">[<a href="#ref-q9Fhy8eq" role="doc-biblioref">41</a>]</span>, with a sparse logistic regression model to predict phenotypic response in clinical trials for ulcerative colitis and acute kidney rejection. The gene regulatory information allows the model to identify the biological regulators associated with the response, potentially giving mechanistic insight into differential clinical trial response. GRRANN <span class="citation" data-cites="19wuAzYvo">[<a href="#ref-19wuAzYvo" role="doc-biblioref">42</a>]</span>, which was applied to the same data as creNET, uses a gene regulatory network to inform the structure of a neural network. Several other methods <span class="citation" data-cites="owp8L957 e4tSAJkK">[<a href="#ref-owp8L957" role="doc-biblioref">43</a>,<a href="#ref-e4tSAJkK" role="doc-biblioref">44</a>]</span> have also used gene regulatory network structure to constrain the structure of a neural network, reducing the number of parameters to be fit and facilitating interpretation.</p>
 <h3 id="applications-in-genetics">Applications in genetics</h3>
-<p>Approaches that incorporate gene set or network structure into genetic studies have a long history <span class="citation" data-cites="PuUYD4zV MPgqEKuv">[<a href="#ref-PuUYD4zV" role="doc-biblioref">44</a>,<a href="#ref-MPgqEKuv" role="doc-biblioref">45</a>]</span>. Recent applications include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression. netReg <span class="citation" data-cites="1AuHIuXiR">[<a href="#ref-1AuHIuXiR" role="doc-biblioref">46</a>]</span> implements a graph-regularized dual LASSO algorithm for eQTL mapping <span class="citation" data-cites="9SBhyy2x">[<a href="#ref-9SBhyy2x" role="doc-biblioref">47</a>]</span> in a publicly available R package. This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model). eQTL information is also used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR). In <span class="citation" data-cites="m7CdzEUG">[<a href="#ref-m7CdzEUG" role="doc-biblioref">48</a>]</span>, a smoothing term derived from a gene regulatory network is used in an MR model. The model with the network smoothing term, applied to a human liver dataset, more robustly identifies genes that influence enzyme activity than a network-agnostic model. As genetic datasets grow, we expect that researchers will continue to develop models that leverage gene set and network databases.</p>
+<p>Approaches that incorporate gene set or network structure into genetic studies have a long history <span class="citation" data-cites="PuUYD4zV MPgqEKuv">[<a href="#ref-PuUYD4zV" role="doc-biblioref">45</a>,<a href="#ref-MPgqEKuv" role="doc-biblioref">46</a>]</span>. Recent applications include expression quantitative trait loci (eQTL) mapping studies, which aim to identify associations between genetic variants and gene expression. netReg <span class="citation" data-cites="1AuHIuXiR">[<a href="#ref-1AuHIuXiR" role="doc-biblioref">47</a>]</span> implements a graph-regularized dual LASSO algorithm for eQTL mapping <span class="citation" data-cites="9SBhyy2x">[<a href="#ref-9SBhyy2x" role="doc-biblioref">48</a>]</span> in a publicly available R package. This model smooths regression coefficients simultaneously based on networks describing associations between genes (target variables in the eQTL regression model) and between variants (predictors in the eQTL regression model). eQTL information is also used in conjunction with genetic variant information to predict phenotypes, in an approach known as Mendelian randomization (MR). In <span class="citation" data-cites="m7CdzEUG">[<a href="#ref-m7CdzEUG" role="doc-biblioref">49</a>]</span>, a smoothing term derived from a gene regulatory network is used in an MR model. The model with the network smoothing term, applied to a human liver dataset, more robustly identifies genes that influence enzyme activity than a network-agnostic model. As genetic datasets grow, we expect that researchers will continue to develop models that leverage gene set and network databases.</p>
 <h2 id="other-models-incorporating-biological-structure">Other models incorporating biological structure</h2>
-<p>Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes relationships between entities (see Figure <a href="#fig:ontology_models">3</a> for a visual example). The Gene Ontology (GO) <span class="citation" data-cites="eH3LaU5K">[<a href="#ref-eH3LaU5K" role="doc-biblioref">3</a>]</span> describes the relationships between cellular subsystems and other attributes describing proteins or genes. DCell <span class="citation" data-cites="qQP20moO">[<a href="#ref-qQP20moO" role="doc-biblioref">49</a>]</span> uses GO to inform the connectivity of a neural network predicting the effects of gene deletions on yeast growth. DCell performs comparably to an unconstrained neural network for this task. Additionally, it is easier to interpret: a cellular subsystem with high neuron outputs under a particular gene deletion can be inferred to be strongly affected by the gene deletion, providing a putative genotype-phenotype association. DeepGO <span class="citation" data-cites="TIQTmEOG">[<a href="#ref-TIQTmEOG" role="doc-biblioref">50</a>]</span> uses a similar approach to predict protein function from amino acid sequence with a neural network constrained by the dependencies of GO. However, a follow-up paper by the same authors <span class="citation" data-cites="Cf5duPBD">[<a href="#ref-Cf5duPBD" role="doc-biblioref">51</a>]</span> showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins. This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.</p>
+<p>Knowledge about biological entities is often organized in an ontology, which is a directed graph that encodes relationships between entities (see Figure <a href="#fig:ontology_models">3</a> for a visual example). The Gene Ontology (GO) <span class="citation" data-cites="eH3LaU5K">[<a href="#ref-eH3LaU5K" role="doc-biblioref">3</a>]</span> describes the relationships between cellular subsystems and other attributes describing proteins or genes. DCell <span class="citation" data-cites="qQP20moO">[<a href="#ref-qQP20moO" role="doc-biblioref">50</a>]</span> uses GO to inform the connectivity of a neural network predicting the effects of gene deletions on yeast growth. DCell performs comparably to an unconstrained neural network for this task. Additionally, it is easier to interpret: a cellular subsystem with high neuron outputs under a particular gene deletion can be inferred to be strongly affected by the gene deletion, providing a putative genotype-phenotype association. DeepGO <span class="citation" data-cites="TIQTmEOG">[<a href="#ref-TIQTmEOG" role="doc-biblioref">51</a>]</span> uses a similar approach to predict protein function from amino acid sequence with a neural network constrained by the dependencies of GO. However, a follow-up paper by the same authors <span class="citation" data-cites="Cf5duPBD">[<a href="#ref-Cf5duPBD" role="doc-biblioref">52</a>]</span> showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins. This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.</p>
 <figure>
 <img src="images/ontology_models_revised.svg" alt="Figure 3: Directed graph-structured data, such as an ontology or phylogenetic tree, can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the nodes in the right tree branch have high neuron outputs for a given sample, then the subsystem encoded in the right branch of the tree graph is most likely important in making predictions for that sample. The “x” values in the data table represent gene expression measurements." id="fig:ontology_models" class="white" /><figcaption><span>Figure 3:</span> Directed graph-structured data, such as an ontology or phylogenetic tree, can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the nodes in the right tree branch have high neuron outputs for a given sample, then the subsystem encoded in the right branch of the tree graph is most likely important in making predictions for that sample. The “x” values in the data table represent gene expression measurements.</figcaption>
 </figure>
-<p>Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose. glmmTree <span class="citation" data-cites="uQ5z1fAc">[<a href="#ref-uQ5z1fAc" role="doc-biblioref">52</a>]</span> uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data. The same authors combine a similar phylogeny smoothing strategy with sparse regression to model caffeine intake and smoking status based on microbiome data <span class="citation" data-cites="VvllhwW1">[<a href="#ref-VvllhwW1" role="doc-biblioref">53</a>]</span>. Phylogenetic trees can also describe the relationships between subclones of a tumor, which are fundamental to understanding cancer evolution and development. Using a tumor phylogeny inferred from copy number aberration (CNA) sequencing data as a smoothing term for deconvolving tumor subclones provided more robust predictions than a phylogeny-free model <span class="citation" data-cites="VzWLIpJn">[<a href="#ref-VzWLIpJn" role="doc-biblioref">54</a>]</span>. The tree structure of the phylogeny and the subclone mixture model are fit jointly to the CNA data.</p>
-<p>Depending on the application, other forms of structure or prior knowledge can inform predictions and interpretation of the model’s output. CYCLOPS <span class="citation" data-cites="1Dk2FpWk6">[<a href="#ref-1Dk2FpWk6" role="doc-biblioref">55</a>]</span> uses a circular node autoencoder <span class="citation" data-cites="15jrSlkXD">[<a href="#ref-15jrSlkXD" role="doc-biblioref">56</a>]</span> to order periodic gene expression data and estimate circadian rhythms. The authors validated the method by correctly ordering samples without temporal labels and identifying genes with known circadian expression. They then applied it to compare gene expression in normal and cancerous liver biopsies, identifying drug targets with circadian expression as candidates for chronotherapy. NetBiTE <span class="citation" data-cites="kKiwlzZq">[<a href="#ref-kKiwlzZq" role="doc-biblioref">57</a>]</span> uses drug-gene interaction information from GDSC <span class="citation" data-cites="lJFuND9F">[<a href="#ref-lJFuND9F" role="doc-biblioref">58</a>]</span>, in addition to protein interaction data, to build a tree ensemble model with splits that are biased toward high-confidence drug-gene interactions. The model predicts sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.</p>
+<p>Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose. glmmTree <span class="citation" data-cites="uQ5z1fAc">[<a href="#ref-uQ5z1fAc" role="doc-biblioref">53</a>]</span> uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data. The same authors combine a similar phylogeny smoothing strategy with sparse regression to model caffeine intake and smoking status based on microbiome data <span class="citation" data-cites="VvllhwW1">[<a href="#ref-VvllhwW1" role="doc-biblioref">54</a>]</span>. Phylogenetic trees can also describe the relationships between subclones of a tumor, which are fundamental to understanding cancer evolution and development. Using a tumor phylogeny inferred from copy number aberration (CNA) sequencing data as a smoothing term for deconvolving tumor subclones provided more robust predictions than a phylogeny-free model <span class="citation" data-cites="VzWLIpJn">[<a href="#ref-VzWLIpJn" role="doc-biblioref">55</a>]</span>. The tree structure of the phylogeny and the subclone mixture model are fit jointly to the CNA data.</p>
+<p>Depending on the application, other forms of structure or prior knowledge can inform predictions and interpretation of the model’s output. CYCLOPS <span class="citation" data-cites="1Dk2FpWk6">[<a href="#ref-1Dk2FpWk6" role="doc-biblioref">56</a>]</span> uses a circular node autoencoder <span class="citation" data-cites="15jrSlkXD">[<a href="#ref-15jrSlkXD" role="doc-biblioref">57</a>]</span> to order periodic gene expression data and estimate circadian rhythms. The authors validated the method by correctly ordering samples without temporal labels and identifying genes with known circadian expression. They then applied it to compare gene expression in normal and cancerous liver biopsies, identifying drug targets with circadian expression as candidates for chronotherapy. NetBiTE <span class="citation" data-cites="kKiwlzZq">[<a href="#ref-kKiwlzZq" role="doc-biblioref">58</a>]</span> uses drug-gene interaction information from GDSC <span class="citation" data-cites="lJFuND9F">[<a href="#ref-lJFuND9F" role="doc-biblioref">59</a>]</span>, in addition to protein interaction data, to build a tree ensemble model with splits that are biased toward high-confidence drug-gene interactions. The model predicts sensitivity to drugs that inhibit critical signaling pathways in cancer, showing improved predictive performance compared to random forests, another commonly used tree ensemble model.</p>
 <h2 id="conclusions-and-future-directions">Conclusions and future directions</h2>
-<p>As the quantity and richness of biomedical data has increased, sequence repositories and interaction databases have expanded and become more robust. This raises opportunities to integrate these resources into the structure of machine learning models. Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation in <span class="citation" data-cites="LL5fLwtS">[<a href="#ref-LL5fLwtS" role="doc-biblioref">59</a>]</span> but updated and expanded to include recent methods and applications. Improved benchmarking should lead to a better understanding of which dataset characteristics align with which approaches.</p>
+<p>As the quantity and richness of biomedical data has increased, sequence repositories and interaction databases have expanded and become more robust. This raises opportunities to integrate these resources into the structure of machine learning models. There have been several past attempts to benchmark and compare approaches to integrating structured data into predictive models in biomedicine, including the evaluation in <span class="citation" data-cites="LL5fLwtS">[<a href="#ref-LL5fLwtS" role="doc-biblioref">60</a>]</span> and more recent studies in <span class="citation" data-cites="iJyceO1y">[<a href="#ref-iJyceO1y" role="doc-biblioref">61</a>]</span> and <span class="citation" data-cites="BMJXNc1Z">[<a href="#ref-BMJXNc1Z" role="doc-biblioref">62</a>]</span>. Extending and broadening benchmarking efforts such as these will be vital, improving our understanding of the suitability of problem domains and datasets for the classes of methods described in this review.</p>
 <p>Many methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of these models and algorithms would facilitate further use and development. In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.</p>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>The authors would like to thank Daniel Himmelstein for a critical reading of the manuscript and helpful discussion.</p>
@@ -86,19 +86,19 @@
 <p>This paper describes DeepVariant, a neural network model for distinguishing true genetic variants from errors in next-generation DNA sequencing data. The model adapts techniques from the image processing community to fit a model on images of read pileups around candidate variants, using information about the sequence around the candidate variant site to make predictions about the true genotype at the site.</p>
 <p>[**] Annotation for PLIER <span class="citation" data-cites="Ki2ij7zE">[<a href="#ref-Ki2ij7zE" role="doc-biblioref">29</a>]</span>:</p>
 <p>This paper describes a “pathway-level information extractor” (PLIER), a method for reducing the dimension of gene expression data in a manner that aligns with known biological pathways or informative gene sets. The method can also reduce the effects of technical noise. The authors show that PLIER can be used to improve cell type inference and as a component in eQTL studies.</p>
-<p>[**] Annotation for netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">34</a>]</span>:</p>
+<p>[**] Annotation for netNMF-sc <span class="citation" data-cites="17fvHtbrH">[<a href="#ref-17fvHtbrH" role="doc-biblioref">35</a>]</span>:</p>
 <p>netNMF-sc is a dimension reduction method that uses network information to “smooth” a matrix factorization of single-cell gene expression data, such that genes that are connected in the network have a similar low-dimensional representation. Inclusion of network information is particularly useful when analyzing single-cell expression data, due to its ability to mitigate “dropouts” and other sources of variability that are present at the single cell level.</p>
-<p>[*] Annotation for Attribution Priors <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">36</a>]</span>:</p>
+<p>[*] Annotation for Attribution Priors <span class="citation" data-cites="LLInUBEI">[<a href="#ref-LLInUBEI" role="doc-biblioref">37</a>]</span>:</p>
 <p>This paper describes “model attribution priors”, or a method for constraining a machine learning model’s behavior during training with prior beliefs or expectations about the data or problem structure. As an example of this concept, the authors show that incorporation of network data improves the performance of a model for drug response prediction in acute myeloid leukemia.</p>
-<p>[*] Annotation for PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">38</a>]</span>:</p>
+<p>[*] Annotation for PIMKL <span class="citation" data-cites="12cJO5Pse">[<a href="#ref-12cJO5Pse" role="doc-biblioref">39</a>]</span>:</p>
 <p>In this paper, the authors present an algorithm for combining gene expression and copy number data with prior information, such as gene networks and pathways or gene set annotations, to predict survival in breast cancer. The weights learned by the model are also interpretable, providing a putative set of explanatory features for the prediction task.</p>
-<p>[**] Annotation for creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">39</a>]</span>:</p>
+<p>[**] Annotation for creNET <span class="citation" data-cites="g8OoyIPj">[<a href="#ref-g8OoyIPj" role="doc-biblioref">40</a>]</span>:</p>
 <p>This work describes creNET, a regression model for gene expression data that uses information about gene regulation to differentially weight or penalize gene sets that are co-regulated. The authors show that the model can be used to predict phenotype from gene expression data in clinical trials. The model also provides interpretable weights for each gene regulator.</p>
-<p>[**] Annotation for DCell <span class="citation" data-cites="qQP20moO">[<a href="#ref-qQP20moO" role="doc-biblioref">49</a>]</span>:</p>
+<p>[**] Annotation for DCell <span class="citation" data-cites="qQP20moO">[<a href="#ref-qQP20moO" role="doc-biblioref">50</a>]</span>:</p>
 <p>This paper presents DCell, a neural network model for prediction of yeast growth phenotype from gene deletions. The structure of the neural network is constrained by the relationships encoded in the Gene Ontology (GO), enabling predictions for a given input to be interpreted based on the subsystems of GO that they activate. Thus, the neural network can be seen as connecting genotype to phenotype.</p>
-<p>[*] Annotation for DeepGO <span class="citation" data-cites="TIQTmEOG">[<a href="#ref-TIQTmEOG" role="doc-biblioref">50</a>]</span>:</p>
+<p>[*] Annotation for DeepGO <span class="citation" data-cites="TIQTmEOG">[<a href="#ref-TIQTmEOG" role="doc-biblioref">51</a>]</span>:</p>
 <p>Here, the authors describe a method for predicting protein function from amino acid sequence, incorporating the dependency structure of the Gene Ontology (GO) into their neural network used for prediction. Using the GO information provides a performance improvement over similar models that do not incorporate this information.</p>
-<p>[**] Annotation for NetBITE <span class="citation" data-cites="kKiwlzZq">[<a href="#ref-kKiwlzZq" role="doc-biblioref">57</a>]</span>:</p>
+<p>[**] Annotation for NetBITE <span class="citation" data-cites="kKiwlzZq">[<a href="#ref-kKiwlzZq" role="doc-biblioref">58</a>]</span>:</p>
 <p>This paper describes a method for using prior knowledge about drug targets to inform the structure of a tree ensemble model, used for predicting IC50 drug sensitivity from gene expression data. The model also uses a protein interaction network to “smooth” the gene weights, such that genes that are related in the network will have a similar influence on predictions.</p>
 <h2 id="references" class="page_break_before">References</h2>
 <!-- Explicitly insert bibliography here -->
@@ -138,8 +138,8 @@ DOI: <a href="https://doi.org/10.1109/cvpr.2009.5206848">10.1109/cvpr.2009.52068
 </div>
 <div id="ref-xPLjeqyD">
 <p>7. <strong>Learning Word Vectors for Sentiment Analysis</strong><br />
-Andrew Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, Christopher Potts<br />
-(2011-06) <a href="https://www.aclweb.org/anthology/P11-1015">https://www.aclweb.org/anthology/P11-1015</a></p>
+Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, Christopher Potts<br />
+<em>Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies</em> (2011-06) <a href="https://www.aclweb.org/anthology/P11-1015">https://www.aclweb.org/anthology/P11-1015</a></p>
 </div>
 <div id="ref-15hcJCu89">
 <p>8. <strong>To Embed or Not: Network Embedding as a Paradigm in Computational Biology</strong><br />
@@ -296,159 +296,175 @@ Jie Hao, Youngsoon Kim, Tae-Kyung Kim, Mingon Kang<br />
 <em>BMC Bioinformatics</em> (2018-12) <a href="https://doi.org/gf75g9">https://doi.org/gf75g9</a><br />
 DOI: <a href="https://doi.org/10.1186/s12859-018-2500-z">10.1186/s12859-018-2500-z</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30558539">30558539</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6296065">PMC6296065</a></p>
 </div>
+<div id="ref-c2Oc0eIx">
+<p>34. <strong>Network-based stratification of tumor mutations</strong><br />
+Matan Hofree, John P Shen, Hannah Carter, Andrew Gross, Trey Ideker<br />
+<em>Nature Methods</em> (2013-09-15) <a href="https://doi.org/gbd257">https://doi.org/gbd257</a><br />
+DOI: <a href="https://doi.org/10.1038/nmeth.2651">10.1038/nmeth.2651</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/24037242">24037242</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866081">PMC3866081</a></p>
+</div>
 <div id="ref-17fvHtbrH">
-<p>34. <strong>netNMF-sc: Leveraging gene-gene interactions for imputation and dimensionality reduction in single-cell expression analysis</strong><br />
+<p>35. <strong>netNMF-sc: Leveraging gene-gene interactions for imputation and dimensionality reduction in single-cell expression analysis</strong><br />
 Rebecca Elyanow, Bianca Dumitrascu, Barbara E. Engelhardt, Benjamin J. Raphael<br />
 <em>Cold Spring Harbor Laboratory</em> (2019-02-08) <a href="https://doi.org/gf386x">https://doi.org/gf386x</a><br />
 DOI: <a href="https://doi.org/10.1101/544346">10.1101/544346</a></p>
 </div>
 <div id="ref-3VYPTgXw">
-<p>35. <strong>COEXPEDIA: exploring biomedical hypotheses via co-expressions associated with medical subject headings (MeSH)</strong><br />
+<p>36. <strong>COEXPEDIA: exploring biomedical hypotheses via co-expressions associated with medical subject headings (MeSH)</strong><br />
 Sunmo Yang, Chan Yeong Kim, Sohyun Hwang, Eiru Kim, Hyojin Kim, Hongseok Shim, Insuk Lee<br />
 <em>Nucleic Acids Research</em> (2016-09-26) <a href="https://doi.org/f9v38k">https://doi.org/f9v38k</a><br />
 DOI: <a href="https://doi.org/10.1093/nar/gkw868">10.1093/nar/gkw868</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27679477">27679477</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210615">PMC5210615</a></p>
 </div>
 <div id="ref-LLInUBEI">
-<p>36. <strong>Learning Explainable Models Using Attribution Priors</strong><br />
+<p>37. <strong>Learning Explainable Models Using Attribution Priors</strong><br />
 Gabriel Erion, Joseph D. Janizek, Pascal Sturmfels, Scott Lundberg, Su-In Lee<br />
 <em>arXiv</em> (2019-06-25) <a href="https://arxiv.org/abs/1906.10670v1">https://arxiv.org/abs/1906.10670v1</a></p>
 </div>
 <div id="ref-1BbuXJuIl">
-<p>37. <strong>A novel network regularized matrix decomposition method to detect mutated cancer genes in tumour samples with inter-patient heterogeneity</strong><br />
+<p>38. <strong>A novel network regularized matrix decomposition method to detect mutated cancer genes in tumour samples with inter-patient heterogeneity</strong><br />
 Jianing Xi, Ao Li, Minghui Wang<br />
 <em>Scientific Reports</em> (2017-06-06) <a href="https://doi.org/gcq9j7">https://doi.org/gcq9j7</a><br />
 DOI: <a href="https://doi.org/10.1038/s41598-017-03141-w">10.1038/s41598-017-03141-w</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28588243">28588243</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5460199">PMC5460199</a></p>
 </div>
 <div id="ref-12cJO5Pse">
-<p>38. <strong>PIMKL: Pathway-Induced Multiple Kernel Learning</strong><br />
+<p>39. <strong>PIMKL: Pathway-Induced Multiple Kernel Learning</strong><br />
 Matteo Manica, Joris Cadow, Roland Mathis, María Rodríguez Martínez<br />
 <em>npj Systems Biology and Applications</em> (2019-03-05) <a href="https://doi.org/gf8ck6">https://doi.org/gf8ck6</a><br />
 DOI: <a href="https://doi.org/10.1038/s41540-019-0086-3">10.1038/s41540-019-0086-3</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30854223">30854223</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6401099">PMC6401099</a></p>
 </div>
 <div id="ref-g8OoyIPj">
-<p>39. <strong>Robust phenotype prediction from gene expression data using differential shrinkage of co-regulated genes</strong><br />
+<p>40. <strong>Robust phenotype prediction from gene expression data using differential shrinkage of co-regulated genes</strong><br />
 Kourosh Zarringhalam, David Degras, Christoph Brockel, Daniel Ziemek<br />
 <em>Scientific Reports</em> (2018-01-19) <a href="https://doi.org/gcwzdn">https://doi.org/gcwzdn</a><br />
 DOI: <a href="https://doi.org/10.1038/s41598-018-19635-0">10.1038/s41598-018-19635-0</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29352257">29352257</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775343">PMC5775343</a></p>
 </div>
 <div id="ref-q9Fhy8eq">
-<p>40. <strong>STRING v10: protein–protein interaction networks, integrated over the tree of life</strong><br />
+<p>41. <strong>STRING v10: protein–protein interaction networks, integrated over the tree of life</strong><br />
 Damian Szklarczyk, Andrea Franceschini, Stefan Wyder, Kristoffer Forslund, Davide Heller, Jaime Huerta-Cepas, Milan Simonovic, Alexander Roth, Alberto Santos, Kalliopi P. Tsafou, … Christian von Mering<br />
 <em>Nucleic Acids Research</em> (2014-10-28) <a href="https://doi.org/f64rfn">https://doi.org/f64rfn</a><br />
 DOI: <a href="https://doi.org/10.1093/nar/gku1003">10.1093/nar/gku1003</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/25352553">25352553</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4383874">PMC4383874</a></p>
 </div>
 <div id="ref-19wuAzYvo">
-<p>41. <strong>A biological network-based regularized artificial neural network model for robust phenotype prediction from gene expression data</strong><br />
+<p>42. <strong>A biological network-based regularized artificial neural network model for robust phenotype prediction from gene expression data</strong><br />
 Tianyu Kang, Wei Ding, Luoyan Zhang, Daniel Ziemek, Kourosh Zarringhalam<br />
 <em>BMC Bioinformatics</em> (2017-12) <a href="https://doi.org/gf8cm6">https://doi.org/gf8cm6</a><br />
 DOI: <a href="https://doi.org/10.1186/s12859-017-1984-2">10.1186/s12859-017-1984-2</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29258445">29258445</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5735940">PMC5735940</a></p>
 </div>
 <div id="ref-owp8L957">
-<p>42. <strong>Using neural networks for reducing the dimensions of single-cell RNA-Seq data</strong><br />
+<p>43. <strong>Using neural networks for reducing the dimensions of single-cell RNA-Seq data</strong><br />
 Chieh Lin, Siddhartha Jain, Hannah Kim, Ziv Bar-Joseph<br />
 <em>Nucleic Acids Research</em> (2017-07-31) <a href="https://doi.org/gcnzb7">https://doi.org/gcnzb7</a><br />
 DOI: <a href="https://doi.org/10.1093/nar/gkx681">10.1093/nar/gkx681</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28973464">28973464</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5737331">PMC5737331</a></p>
 </div>
 <div id="ref-e4tSAJkK">
-<p>43. <strong>Genetic Neural Networks: an artificial neural network architecture for capturing gene expression relationships</strong><br />
+<p>44. <strong>Genetic Neural Networks: an artificial neural network architecture for capturing gene expression relationships</strong><br />
 Ameen Eetemadi, Ilias Tagkopoulos<br />
 <em>Bioinformatics</em> (2018-11-19) <a href="https://doi.org/gfnks6">https://doi.org/gfnks6</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/bty945">10.1093/bioinformatics/bty945</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30452523">30452523</a></p>
 </div>
 <div id="ref-PuUYD4zV">
-<p>44. <strong>Nonparametric pathway-based regression models for analysis of genomic data</strong><br />
+<p>45. <strong>Nonparametric pathway-based regression models for analysis of genomic data</strong><br />
 Z. Wei, H. Li<br />
 <em>Biostatistics</em> (2006-06-13) <a href="https://doi.org/fdmgqm">https://doi.org/fdmgqm</a><br />
 DOI: <a href="https://doi.org/10.1093/biostatistics/kxl007">10.1093/biostatistics/kxl007</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/16772399">16772399</a></p>
 </div>
 <div id="ref-MPgqEKuv">
-<p>45. <strong>Network-constrained regularization and variable selection for analysis of genomic data</strong><br />
+<p>46. <strong>Network-constrained regularization and variable selection for analysis of genomic data</strong><br />
 C. Li, H. Li<br />
 <em>Bioinformatics</em> (2008-03-01) <a href="https://doi.org/fk8n4b">https://doi.org/fk8n4b</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btn081">10.1093/bioinformatics/btn081</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/18310618">18310618</a></p>
 </div>
 <div id="ref-1AuHIuXiR">
-<p>46. <strong>netReg: network-regularized linear models for biological association studies</strong><br />
+<p>47. <strong>netReg: network-regularized linear models for biological association studies</strong><br />
 Simon Dirmeier, Christiane Fuchs, Nikola S Mueller, Fabian J Theis<br />
 <em>Bioinformatics</em> (2017-10-25) <a href="https://doi.org/gcg9xq">https://doi.org/gcg9xq</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btx677">10.1093/bioinformatics/btx677</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29077797">29077797</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6030897">PMC6030897</a></p>
 </div>
 <div id="ref-9SBhyy2x">
-<p>47. <strong>Graph-regularized dual Lasso for robust eQTL mapping</strong><br />
+<p>48. <strong>Graph-regularized dual Lasso for robust eQTL mapping</strong><br />
 Wei Cheng, Xiang Zhang, Zhishan Guo, Yu Shi, Wei Wang<br />
 <em>Bioinformatics</em> (2014-06-11) <a href="https://doi.org/f58j6m">https://doi.org/f58j6m</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btu293">10.1093/bioinformatics/btu293</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/24931977">24931977</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4058913">PMC4058913</a></p>
 </div>
 <div id="ref-m7CdzEUG">
-<p>48. <strong>Integrative analysis of genetical genomics data incorporating network structures</strong><br />
+<p>49. <strong>Integrative analysis of genetical genomics data incorporating network structures</strong><br />
 Bin Gao, Xu Liu, Hongzhe Li, Yuehua Cui<br />
 <em>Biometrics</em> (2019-04-29) <a href="https://doi.org/gf8f9q">https://doi.org/gf8f9q</a><br />
 DOI: <a href="https://doi.org/10.1111/biom.13072">10.1111/biom.13072</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31009063">31009063</a></p>
 </div>
 <div id="ref-qQP20moO">
-<p>49. <strong>Using deep learning to model the hierarchical structure and function of a cell</strong><br />
+<p>50. <strong>Using deep learning to model the hierarchical structure and function of a cell</strong><br />
 Jianzhu Ma, Michael Ku Yu, Samson Fong, Keiichiro Ono, Eric Sage, Barry Demchak, Roded Sharan, Trey Ideker<br />
 <em>Nature Methods</em> (2018-03-05) <a href="https://doi.org/gc46jp">https://doi.org/gc46jp</a><br />
 DOI: <a href="https://doi.org/10.1038/nmeth.4627">10.1038/nmeth.4627</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29505029">29505029</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5882547">PMC5882547</a></p>
 </div>
 <div id="ref-TIQTmEOG">
-<p>50. <strong>DeepGO: predicting protein functions from sequence and interactions using a deep ontology-aware classifier</strong><br />
+<p>51. <strong>DeepGO: predicting protein functions from sequence and interactions using a deep ontology-aware classifier</strong><br />
 Maxat Kulmanov, Mohammed Asif Khan, Robert Hoehndorf<br />
 <em>Bioinformatics</em> (2017-10-03) <a href="https://doi.org/gc3nb8">https://doi.org/gc3nb8</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btx624">10.1093/bioinformatics/btx624</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29028931">29028931</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5860606">PMC5860606</a></p>
 </div>
 <div id="ref-Cf5duPBD">
-<p>51. <strong>DeepGOPlus: improved protein function prediction from sequence</strong><br />
+<p>52. <strong>DeepGOPlus: improved protein function prediction from sequence</strong><br />
 Maxat Kulmanov, Robert Hoehndorf<br />
 <em>Bioinformatics</em> (2019-07-27) <a href="https://doi.org/gf84d8">https://doi.org/gf84d8</a><br />
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btz595">10.1093/bioinformatics/btz595</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31350877">31350877</a></p>
 </div>
 <div id="ref-uQ5z1fAc">
-<p>52. <strong>Predictive Modeling of Microbiome Data Using a Phylogeny-Regularized Generalized Linear Mixed Model</strong><br />
+<p>53. <strong>Predictive Modeling of Microbiome Data Using a Phylogeny-Regularized Generalized Linear Mixed Model</strong><br />
 Jian Xiao, Li Chen, Stephen Johnson, Yue Yu, Xianyang Zhang, Jun Chen<br />
 <em>Frontiers in Microbiology</em> (2018-06-27) <a href="https://doi.org/gdtz4z">https://doi.org/gdtz4z</a><br />
 DOI: <a href="https://doi.org/10.3389/fmicb.2018.01391">10.3389/fmicb.2018.01391</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29997602">29997602</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6030386">PMC6030386</a></p>
 </div>
 <div id="ref-VvllhwW1">
-<p>53. <strong>A Phylogeny-Regularized Sparse Regression Model for Predictive Modeling of Microbial Community Data</strong><br />
+<p>54. <strong>A Phylogeny-Regularized Sparse Regression Model for Predictive Modeling of Microbial Community Data</strong><br />
 Jian Xiao, Li Chen, Yue Yu, Xianyang Zhang, Jun Chen<br />
 <em>Frontiers in Microbiology</em> (2018-12-19) <a href="https://doi.org/gf8qcc">https://doi.org/gf8qcc</a><br />
 DOI: <a href="https://doi.org/10.3389/fmicb.2018.03112">10.3389/fmicb.2018.03112</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30619188">30619188</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305753">PMC6305753</a></p>
 </div>
 <div id="ref-VzWLIpJn">
-<p>54. <strong>Tumor Copy Number Deconvolution Integrating Bulk and Single-Cell Sequencing Data</strong><br />
+<p>55. <strong>Tumor Copy Number Deconvolution Integrating Bulk and Single-Cell Sequencing Data</strong><br />
 Haoyun Lei, Bochuan Lyu, E. Michael Gertz, Alejandro A. Schäffer, Xulian Shi, Kui Wu, Guibo Li, Liqin Xu, Yong Hou, Michael Dean, Russell Schwartz<br />
 <em>Lecture Notes in Computer Science</em> (2019) <a href="https://doi.org/gf8qck">https://doi.org/gf8qck</a><br />
 DOI: <a href="https://doi.org/10.1007/978-3-030-17083-7_11">10.1007/978-3-030-17083-7_11</a></p>
 </div>
 <div id="ref-1Dk2FpWk6">
-<p>55. <strong>CYCLOPS reveals human transcriptional rhythms in health and disease</strong><br />
+<p>56. <strong>CYCLOPS reveals human transcriptional rhythms in health and disease</strong><br />
 Ron C. Anafi, Lauren J. Francey, John B. Hogenesch, Junhyong Kim<br />
 <em>Proceedings of the National Academy of Sciences</em> (2017-04-24) <a href="https://doi.org/f9796k">https://doi.org/f9796k</a><br />
 DOI: <a href="https://doi.org/10.1073/pnas.1619320114">10.1073/pnas.1619320114</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/28439010">28439010</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5441789">PMC5441789</a></p>
 </div>
 <div id="ref-15jrSlkXD">
-<p>56. <strong>Circular Nodes in Neural Networks</strong><br />
+<p>57. <strong>Circular Nodes in Neural Networks</strong><br />
 Michael J. Kirby, Rick Miranda<br />
 <em>Neural Computation</em> (1996-02-15) <a href="https://doi.org/ffcww8">https://doi.org/ffcww8</a><br />
 DOI: <a href="https://doi.org/10.1162/neco.1996.8.2.390">10.1162/neco.1996.8.2.390</a></p>
 </div>
 <div id="ref-kKiwlzZq">
-<p>57. <strong>Network-based Biased Tree Ensembles (NetBiTE) for Drug Sensitivity Prediction and Drug Sensitivity Biomarker Identification in Cancer</strong><br />
+<p>58. <strong>Network-based Biased Tree Ensembles (NetBiTE) for Drug Sensitivity Prediction and Drug Sensitivity Biomarker Identification in Cancer</strong><br />
 Ali Oskooei, Matteo Manica, Roland Mathis, Maria Rodriguez Martinez<br />
 <em>arXiv</em> (2018-08-18) <a href="https://arxiv.org/abs/1808.06603v2">https://arxiv.org/abs/1808.06603v2</a></p>
 </div>
 <div id="ref-lJFuND9F">
-<p>58. <strong>Genomics of Drug Sensitivity in Cancer (GDSC): a resource for therapeutic biomarker discovery in cancer cells</strong><br />
+<p>59. <strong>Genomics of Drug Sensitivity in Cancer (GDSC): a resource for therapeutic biomarker discovery in cancer cells</strong><br />
 Wanjuan Yang, Jorge Soares, Patricia Greninger, Elena J. Edelman, Howard Lightfoot, Simon Forbes, Nidhi Bindal, Dave Beare, James A. Smith, I. Richard Thompson, … Mathew J. Garnett<br />
 <em>Nucleic Acids Research</em> (2012-11-22) <a href="https://doi.org/f4jrdn">https://doi.org/f4jrdn</a><br />
 DOI: <a href="https://doi.org/10.1093/nar/gks1111">10.1093/nar/gks1111</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/23180760">23180760</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531057">PMC3531057</a></p>
 </div>
 <div id="ref-LL5fLwtS">
-<p>59. <strong>A Critical Evaluation of Network and Pathway-Based Classifiers for Outcome Prediction in Breast Cancer</strong><br />
+<p>60. <strong>A Critical Evaluation of Network and Pathway-Based Classifiers for Outcome Prediction in Breast Cancer</strong><br />
 Christine Staiger, Sidney Cadot, Raul Kooter, Marcus Dittrich, Tobias Müller, Gunnar W. Klau, Lodewyk F. A. Wessels<br />
 <em>PLoS ONE</em> (2012-04-27) <a href="https://doi.org/gf8rgw">https://doi.org/gf8rgw</a><br />
 DOI: <a href="https://doi.org/10.1371/journal.pone.0034796">10.1371/journal.pone.0034796</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/22558100">22558100</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3338754">PMC3338754</a></p>
+</div>
+<div id="ref-iJyceO1y">
+<p>61. <strong>Analysis of Gene Interaction Graphs for Biasing Machine Learning Models</strong><br />
+Paul Bertin, Mohammad Hashir, Martin Weiss, Geneviève Boucher, Vincent Frappier, Joseph Paul Cohen<br />
+<em>arXiv</em> (2019-05-06) <a href="https://arxiv.org/abs/1905.02295v1">https://arxiv.org/abs/1905.02295v1</a></p>
+</div>
+<div id="ref-BMJXNc1Z">
+<p>62. <strong>Is graph-based feature selection of genes better than random?</strong><br />
+Mohammad Hashir, Paul Bertin, Martin Weiss, Vincent Frappier, Theodore J. Perkins, Geneviève Boucher, Joseph Paul Cohen<br />
+<em>arXiv</em> (2019-10-21) <a href="https://arxiv.org/abs/1910.09600v2">https://arxiv.org/abs/1910.09600v2</a></p>
 </div>
 </div>
 <!-- default theme -->

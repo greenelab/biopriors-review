@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-12-10'
+date-meta: '2019-12-16'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/7581d058283f8c0be83baa6917168d2fcf657c20/))
+([permalink](https://greenelab.github.io/biopriors-review/v/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5/))
 was automatically generated
-from [greenelab/biopriors-review@7581d05](https://github.com/greenelab/biopriors-review/tree/7581d058283f8c0be83baa6917168d2fcf657c20)
-on December 10, 2019.
+from [greenelab/biopriors-review@6f38aa6](https://github.com/greenelab/biopriors-review/tree/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5)
+on December 16, 2019.
 </em></small>
 
 ## Authors
@@ -67,7 +67,11 @@ The area of research would benefit from performant open source implementations a
 
 ## Graphical abstract
 
-![Schematic showing the main categories of models incorporating structured biological data covered in this review. The first panel shows an example of a model operating on sequence data, the second panel shows a model in which dimension reduction is influenced by the connections in a gene network, and the third panel shows a neural network with structure constrained by a phylogeny or ontology. The "x" values in the data tables represent gene expression measurements.](images/all_models_revised.svg){.white}
+![
+    Schematic showing the main categories of models incorporating structured biological data covered in this review.
+    The first panel shows an example of a model operating on sequence data, the second panel shows a model in which dimension reduction is influenced by the connections in a gene network, and the third panel shows a neural network with structure constrained by a phylogeny or ontology.
+    The "x" values in the data tables represent gene expression measurements.
+](images/all_models_revised.svg){.white}
 
 
 ## Introduction
@@ -102,7 +106,12 @@ The definition of "spatial context" is specific to the input: one might group im
 In this way, CNNs consider context without making strong assumptions about exactly how much context is needed or how it should be encoded; the data informs the encoding.
 A detailed description of how CNNs are applied to sequences can be found in Angermueller et al. [@irSe12Sm].
 
-![Contrasting approaches to extracting features from DNA or RNA sequence data. Early models defined features of interest by hand based on prior knowledge about the prediction or clustering problem of interest, such as GC content or sequence melting point, as depicted in the left branch in the figure. Convolutional models, depicted in the right branch, use sequence convolutions to derive features directly from sequence proximity, without requiring quantities of interest to be identified before the model is trained. Red or blue emphasis denotes inputs to the predictive model (either the hand-defined numeric features on the left or the outputs of convolutional filters on the right).](images/sequence_features_revised.svg){#fig:sequence_features .white}
+![
+    Contrasting approaches to extracting features from DNA or RNA sequence data.
+    Early models defined features of interest by hand based on prior knowledge about the prediction or clustering problem of interest, such as GC content or sequence melting point, as depicted in the left branch in the figure.
+    Convolutional models, depicted in the right branch, use sequence convolutions to derive features directly from sequence proximity, without requiring quantities of interest to be identified before the model is trained.
+    Red or blue emphasis denotes inputs to the predictive model (either the hand-defined numeric features on the left or the outputs of convolutional filters on the right).
+](images/sequence_features_revised.svg){#fig:sequence_features .white}
 
 ### Applications in regulatory biology
 
@@ -128,8 +137,6 @@ In each of these cases, proximity in the linear genome helped model the complex 
 
 Identification of genetic variants also benefits from models that include sequence context.
 DeepVariant [@YqAWSEkm] applies a CNN to images of sequence read pileups, using read data around each candidate variant to accurately distinguish true variants from sequencing errors.
-<!-- could mention GATK4 here which uses a CNN, although nothing has been published? -->
-<!-- https://gatkforums.broadinstitute.org/gatk/discussion/10996/deep-learning-in-gatk4 -->
 CNNs have also been applied to single molecule (PacBio and Oxford Nanopore) sequencing data [@UsuUETZK], using a different sequence encoding that results in better performance than DeepVariant on single molecule data.
 However, many variant calling models still use hand-engineered sequence features as input to a classifier, including current state-of-the-art approaches to insertion/deletion calling [@KDXezqfK; @1ENge146H].
 Detection of somatic mutations is a distinct but related challenge to detection of germline variants, and has also recently benefitted from use of CNNs [@t17iSYjA].
@@ -143,7 +150,12 @@ Models may make use of gene expression data matrices from RNA sequencing or micr
 To account for relationships between genes, one might incorporate known interactions or correlations when making predictions or generating a low-dimensional representation of the data (Figure {@fig:network_models}).
 This is comparable to the manner in which sequence context pushes models to consider nearby base pairs similarly.
 
-![The relationships between genes provide structure that can be incorporated into machine learning models. One common approach is to use a network or collection of gene sets to embed the data in a lower-dimensional space, in which genes that are in the same gene sets or that are well-connected in the network have a similar representation in the lower-dimensional space. The embedded data can then be used for classification or clustering tasks. The "x" values in the data table represent gene expression measurements.](images/network_models_revised.svg){#fig:network_models .white}
+![
+    The relationships between genes provide structure that can be incorporated into machine learning models.
+    One common approach is to use a network or collection of gene sets to embed the data in a lower-dimensional space, in which genes that are in the same gene sets or that are well-connected in the network have a similar representation in the lower-dimensional space.
+    The embedded data can then be used for classification or clustering tasks.
+    The "x" values in the data table represent gene expression measurements.
+](images/network_models_revised.svg){#fig:network_models .white}
 
 ### Applications in transcriptomics
 
@@ -157,7 +169,8 @@ This approach aids interpretation, as pathway nodes in the network with high wei
 
 Gene-level relationships can also be represented with networks.
 Network nodes typically represent genes and real-valued edges may represent interactions or correlations between genes, often in a tissue or cell type context of interest.
-netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data.
+Network-based stratification [@c2Oc0eIx] is an early example of a method for utilizing gene interaction network data in this manner, applied to improve subtyping across several cancer types.
+More recently, netNMF-sc [@17fvHtbrH] incorporates coexpression networks [@3VYPTgXw] as a smoothing term for dimension reduction and dropout imputation in single-cell gene expression data.
 The coexpression network improves performance for identifying cell types and cell cycle marker genes, as compared to using raw gene expression or other single-cell dimension reduction methods.
 Combining gene expression data with a network-derived smoothing term also improved prediction of patient drug response in acute myeloid leukemia [@LLInUBEI] and detection of mutated cancer genes [@1BbuXJuIl].
 PIMKL [@12cJO5Pse] combines network and pathway data to predict disease-free survival from breast cancer cohorts.
@@ -193,7 +206,12 @@ DeepGO [@TIQTmEOG] uses a similar approach to predict protein function from amin
 However, a follow-up paper by the same authors [@Cf5duPBD] showed that this hierarchy-aware approach can be outperformed by a hierarchy-naive CNN, which uses only amino acid sequence and similarity to labeled training set proteins.
 This suggests a tradeoff between interpretability and predictive accuracy for protein function prediction.
 
-![Directed graph-structured data, such as an ontology or phylogenetic tree, can be incorporated into machine learning models. Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph. This type of constraint can also be useful in model interpretation: for example, if the nodes in the right tree branch have high neuron outputs for a given sample, then the subsystem encoded in the right branch of the tree graph is most likely important in making predictions for that sample. The "x" values in the data table represent gene expression measurements.](images/ontology_models_revised.svg){#fig:ontology_models .white}
+![
+    Directed graph-structured data, such as an ontology or phylogenetic tree, can be incorporated into machine learning models.
+    Here, the connections in the neural network used to predict a set of labels parallel those in the tree graph.
+    This type of constraint can also be useful in model interpretation: for example, if the nodes in the right tree branch have high neuron outputs for a given sample, then the subsystem encoded in the right branch of the tree graph is most likely important in making predictions for that sample.
+    The "x" values in the data table represent gene expression measurements.
+](images/ontology_models_revised.svg){#fig:ontology_models .white}
 
 Phylogenetic trees, or hierarchies describing the evolutionary relationships between species, can be useful for a similar purpose.
 glmmTree [@uQ5z1fAc] uses a phylogenetic tree describing the relationship between microorganisms to improve predictions of age based on gut microbiome data.
@@ -214,12 +232,11 @@ The model predicts sensitivity to drugs that inhibit critical signaling pathways
 
 As the quantity and richness of biomedical data has increased, sequence repositories and interaction databases have expanded and become more robust.
 This raises opportunities to integrate these resources into the structure of machine learning models.
-Going forward, there is an outstanding need for benchmarks comparing these approaches across diverse datasets and prediction problems, along the lines of the evaluation in [@LL5fLwtS] but updated and expanded to include recent methods and applications.
-Improved benchmarking should lead to a better understanding of which dataset characteristics align with which approaches.
+There have been several past attempts to benchmark and compare approaches to integrating structured data into predictive models in biomedicine, including the evaluation in [@LL5fLwtS] and more recent studies in [@iJyceO1y] and [@BMJXNc1Z].
+Extending and broadening benchmarking efforts such as these will be vital, improving our understanding of the suitability of problem domains and datasets for the classes of methods described in this review.
 
 Many methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of these models and algorithms would facilitate further use and development.
 In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
-
 
 
 ## Acknowledgements
