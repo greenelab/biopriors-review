@@ -2,7 +2,7 @@
 author-meta:
 - Jake Crawford
 - Casey S. Greene
-date-meta: '2019-12-16'
+date-meta: '2019-12-17'
 keywords:
 - machine learning
 - deep learning
@@ -20,10 +20,10 @@ title: Incorporating biological structure into machine learning models in biomed
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/biopriors-review/v/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5/))
+([permalink](https://greenelab.github.io/biopriors-review/v/176b30d7e47ec10da84f84840afcfc69c62b0c1a/))
 was automatically generated
-from [greenelab/biopriors-review@6f38aa6](https://github.com/greenelab/biopriors-review/tree/6f38aa635eb7cdfbcbb0e4f52615ff6f43215dd5)
-on December 16, 2019.
+from [greenelab/biopriors-review@176b30d](https://github.com/greenelab/biopriors-review/tree/176b30d7e47ec10da84f84840afcfc69c62b0c1a)
+on December 17, 2019.
 </em></small>
 
 ## Authors
@@ -237,6 +237,11 @@ Extending and broadening benchmarking efforts such as these will be vital, impro
 
 Many methods described in this review have open-source implementations available; however, increased availability of performant and extensible implementations of these models and algorithms would facilitate further use and development.
 In the future, we foresee that incorporating structured biomedical data will become commonplace for improving model interpretability and boosting performance when sample size is limited.
+
+
+## Author contributions
+
+**Jake Crawford:** Conceptualization, Writing - Original Draft, Writing - Reviewing and Editing. **Casey S. Greene:** Funding Acquisition, Supervision, Conceptualization, Writing - Reviewing and Editing.
 
 
 ## Acknowledgements
